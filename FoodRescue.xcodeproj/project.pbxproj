@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1C3A2C32B3B267A009014F7 /* JWTAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */; };
+		C1C3A2C62B3B2751009014F7 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C52B3B2751009014F7 /* JWTDecode */; };
+		C1C3A2C92B3B2FE6009014F7 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C82B3B2FE6009014F7 /* KeychainSwift */; };
+		C1C3A2CB2B3B3105009014F7 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2CA2B3B3105009014F7 /* AuthenticationViewController.swift */; };
 		C1E35E152B374EC6006E4AE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E35E142B374EC6006E4AE4 /* AppDelegate.swift */; };
 		C1E35E172B374EC6006E4AE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E35E162B374EC6006E4AE4 /* SceneDelegate.swift */; };
 		C1E35E1E2B374EC7006E4AE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1E35E1D2B374EC7006E4AE4 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTAuthentication.swift; sourceTree = "<group>"; };
+		C1C3A2CA2B3B3105009014F7 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		C1E35E112B374EC6006E4AE4 /* FoodRescue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodRescue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E35E142B374EC6006E4AE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1E35E162B374EC6006E4AE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -25,12 +31,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1C3A2C92B3B2FE6009014F7 /* KeychainSwift in Frameworks */,
+				C1C3A2C62B3B2751009014F7 /* JWTDecode in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1C3A2CC2B3B31C7009014F7 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		C1E35E082B374EC6006E4AE4 = {
 			isa = PBXGroup;
 			children = (
@@ -50,6 +66,7 @@
 		C1E35E132B374EC6006E4AE4 /* FoodRescue */ = {
 			isa = PBXGroup;
 			children = (
+				C1C3A2CC2B3B31C7009014F7 /* API */,
 				C1E35E282B374F15006E4AE4 /* Authentication */,
 				C1E35E142B374EC6006E4AE4 /* AppDelegate.swift */,
 				C1E35E162B374EC6006E4AE4 /* SceneDelegate.swift */,
@@ -62,6 +79,7 @@
 		C1E35E282B374F15006E4AE4 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				C1C3A2CA2B3B3105009014F7 /* AuthenticationViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -82,6 +100,10 @@
 			dependencies = (
 			);
 			name = FoodRescue;
+			packageProductDependencies = (
+				C1C3A2C52B3B2751009014F7 /* JWTDecode */,
+				C1C3A2C82B3B2FE6009014F7 /* KeychainSwift */,
+			);
 			productName = FoodRescue;
 			productReference = C1E35E112B374EC6006E4AE4 /* FoodRescue.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +132,10 @@
 				Base,
 			);
 			mainGroup = C1E35E082B374EC6006E4AE4;
+			packageReferences = (
+				C1C3A2C42B3B2751009014F7 /* XCRemoteSwiftPackageReference "JWTDecode" */,
+				C1C3A2C72B3B2FE6009014F7 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+			);
 			productRefGroup = C1E35E122B374EC6006E4AE4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -135,6 +161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1C3A2CB2B3B3105009014F7 /* AuthenticationViewController.swift in Sources */,
+				C1C3A2C32B3B267A009014F7 /* JWTAuthentication.swift in Sources */,
 				C1E35E152B374EC6006E4AE4 /* AppDelegate.swift in Sources */,
 				C1E35E172B374EC6006E4AE4 /* SceneDelegate.swift in Sources */,
 			);
@@ -335,6 +363,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C1C3A2C42B3B2751009014F7 /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		C1C3A2C72B3B2FE6009014F7 /* XCRemoteSwiftPackageReference "keychain-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/keychain-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 20.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C1C3A2C52B3B2751009014F7 /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1C3A2C42B3B2751009014F7 /* XCRemoteSwiftPackageReference "JWTDecode" */;
+			productName = JWTDecode;
+		};
+		C1C3A2C82B3B2FE6009014F7 /* KeychainSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1C3A2C72B3B2FE6009014F7 /* XCRemoteSwiftPackageReference "keychain-swift" */;
+			productName = KeychainSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C1E35E092B374EC6006E4AE4 /* Project object */;
 }
