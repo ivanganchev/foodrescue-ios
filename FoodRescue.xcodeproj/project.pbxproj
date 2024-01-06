@@ -7,18 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C12C4A912B49884400E0B1D2 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C4A902B49884400E0B1D2 /* UITextFieldExtension.swift */; };
+		C12C4A932B49887400E0B1D2 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C4A922B49887400E0B1D2 /* UIColorExtensions.swift */; };
 		C1C3A2C32B3B267A009014F7 /* JWTAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */; };
 		C1C3A2C62B3B2751009014F7 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C52B3B2751009014F7 /* JWTDecode */; };
 		C1C3A2C92B3B2FE6009014F7 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C82B3B2FE6009014F7 /* KeychainSwift */; };
 		C1C3A2CB2B3B3105009014F7 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2CA2B3B3105009014F7 /* AuthenticationViewController.swift */; };
+		C1C3A2D02B45AE8E009014F7 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2CF2B45AE8E009014F7 /* SignInViewController.swift */; };
+		C1C3A2D22B45AE98009014F7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2D12B45AE98009014F7 /* SignUpViewController.swift */; };
+		C1C3A2D62B45B10B009014F7 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2D52B45B10B009014F7 /* AuthenticationView.swift */; };
+		C1C3A2DA2B45B166009014F7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2D92B45B166009014F7 /* SignUpView.swift */; };
+		C1C3A2DC2B45B177009014F7 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2DB2B45B177009014F7 /* SignInView.swift */; };
 		C1E35E152B374EC6006E4AE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E35E142B374EC6006E4AE4 /* AppDelegate.swift */; };
 		C1E35E172B374EC6006E4AE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E35E162B374EC6006E4AE4 /* SceneDelegate.swift */; };
 		C1E35E1E2B374EC7006E4AE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1E35E1D2B374EC7006E4AE4 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C12C4A902B49884400E0B1D2 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
+		C12C4A922B49887400E0B1D2 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTAuthentication.swift; sourceTree = "<group>"; };
 		C1C3A2CA2B3B3105009014F7 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		C1C3A2CF2B45AE8E009014F7 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		C1C3A2D12B45AE98009014F7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		C1C3A2D52B45B10B009014F7 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		C1C3A2D92B45B166009014F7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		C1C3A2DB2B45B177009014F7 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		C1E35E112B374EC6006E4AE4 /* FoodRescue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodRescue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E35E142B374EC6006E4AE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1E35E162B374EC6006E4AE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,12 +53,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C12C4A8F2B49881E00E0B1D2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C12C4A902B49884400E0B1D2 /* UITextFieldExtension.swift */,
+				C12C4A922B49887400E0B1D2 /* UIColorExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C1C3A2CC2B3B31C7009014F7 /* API */ = {
 			isa = PBXGroup;
 			children = (
 				C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		C1C3A2D32B45AE9E009014F7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C1C3A2D52B45B10B009014F7 /* AuthenticationView.swift */,
+				C1C3A2D92B45B166009014F7 /* SignUpView.swift */,
+				C1C3A2DB2B45B177009014F7 /* SignInView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C1C3A2D42B45AEA3009014F7 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		C1E35E082B374EC6006E4AE4 = {
@@ -66,6 +106,7 @@
 		C1E35E132B374EC6006E4AE4 /* FoodRescue */ = {
 			isa = PBXGroup;
 			children = (
+				C12C4A8F2B49881E00E0B1D2 /* Extensions */,
 				C1C3A2CC2B3B31C7009014F7 /* API */,
 				C1E35E282B374F15006E4AE4 /* Authentication */,
 				C1E35E142B374EC6006E4AE4 /* AppDelegate.swift */,
@@ -79,7 +120,11 @@
 		C1E35E282B374F15006E4AE4 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				C1C3A2D42B45AEA3009014F7 /* ViewModels */,
+				C1C3A2D32B45AE9E009014F7 /* Views */,
 				C1C3A2CA2B3B3105009014F7 /* AuthenticationViewController.swift */,
+				C1C3A2CF2B45AE8E009014F7 /* SignInViewController.swift */,
+				C1C3A2D12B45AE98009014F7 /* SignUpViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -161,9 +206,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1C3A2DC2B45B177009014F7 /* SignInView.swift in Sources */,
+				C1C3A2D22B45AE98009014F7 /* SignUpViewController.swift in Sources */,
 				C1C3A2CB2B3B3105009014F7 /* AuthenticationViewController.swift in Sources */,
 				C1C3A2C32B3B267A009014F7 /* JWTAuthentication.swift in Sources */,
+				C1C3A2D62B45B10B009014F7 /* AuthenticationView.swift in Sources */,
+				C12C4A912B49884400E0B1D2 /* UITextFieldExtension.swift in Sources */,
+				C12C4A932B49887400E0B1D2 /* UIColorExtensions.swift in Sources */,
+				C1C3A2DA2B45B166009014F7 /* SignUpView.swift in Sources */,
 				C1E35E152B374EC6006E4AE4 /* AppDelegate.swift in Sources */,
+				C1C3A2D02B45AE8E009014F7 /* SignInViewController.swift in Sources */,
 				C1E35E172B374EC6006E4AE4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,7 +349,7 @@
 				INFOPLIST_FILE = FoodRescue/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -325,7 +377,7 @@
 				INFOPLIST_FILE = FoodRescue/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
