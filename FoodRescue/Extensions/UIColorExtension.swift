@@ -1,5 +1,5 @@
 //
-//  UIColorExtensions.swift
+//  UIColorExtension.swift
 //  FoodRescue
 //
 //  Created by Ivan Ganchev on 2024-01-06.
@@ -8,7 +8,8 @@
 import UIKit
 
 extension UIColor {
-    static let mainGreen = UIColor(red: 39, green: 94, blue: 93)
+    static let mainGreen = UIColor(red: 76, green: 145, blue: 115)
+    static let lightGreen = UIColor(red: 125, green: 216, blue: 125)
     static let mainGrey = UIColor(red: 105, green: 105, blue: 105)
     static let fadedGrey = UIColor(red: 155, green: 155, blue: 155)
     

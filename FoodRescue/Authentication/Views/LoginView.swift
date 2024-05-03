@@ -7,6 +7,6 @@
 
 import UIKit
 
-class SignInView: AuthenticationView {
+class LoginView: AuthenticationView {
     
 }
