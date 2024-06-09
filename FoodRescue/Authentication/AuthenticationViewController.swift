@@ -8,7 +8,13 @@
 import UIKit
 
 class AuthenticationViewController: UIViewController {
-    private var authenticationView: AuthenticationView!
+    var authenticationView: AuthenticationView!
+    var authenticationViewModel: AuthenticationViewModel {
+        let authenticationViewModel = AuthenticationViewModel()
+        authenticationViewModel.authenticationResultHandler = handleAuthentication
+        
+        return authenticationViewModel
+    }
     
     init(view: AuthenticationView) {
         super.init(nibName: nil, bundle: nil)
@@ -27,4 +33,6 @@ class AuthenticationViewController: UIViewController {
     override func loadView() {
         self.view = authenticationView
     }
+    
+    func handleAuthentication(with result: Result<Void, Error>) {}
 }

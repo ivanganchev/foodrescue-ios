@@ -14,6 +14,7 @@ class JWTAuthentication {
     
     func storeJWToken(_ jwt: String) {
         keychain.set(jwt, forKey: "token")
+        print("Successfully saved token")
     }
     
     func getDecodedUserId() -> String? {

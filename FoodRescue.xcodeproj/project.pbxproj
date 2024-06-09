@@ -7,8 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C1030AF32BE51F2F0015820C /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1030AF22BE51F2F0015820C /* AuthenticationViewModel.swift */; };
+		C1030AF62BE522DA0015820C /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1030AF52BE522D90015820C /* AuthenticationService.swift */; };
+		C1030AF92BE524740015820C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C1030AF82BE524740015820C /* Alamofire */; };
+		C1030AFE2BE5252F0015820C /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1030AFD2BE5252F0015820C /* AuthResponse.swift */; };
+		C1030B032BE549B90015820C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C1030B022BE549B90015820C /* RealmSwift */; };
+		C1030B062BE54A4B0015820C /* UserDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1030B052BE54A4B0015820C /* UserDB.swift */; };
+		C1030B082BE54AB00015820C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1030B072BE54AB00015820C /* User.swift */; };
+		C1030B0B2BE57AFB0015820C /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C1030B022BE549B90015820C /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		C1030B0D2BE690470015820C /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1030B0C2BE690470015820C /* RealmExtension.swift */; };
 		C12C4A912B49884400E0B1D2 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C4A902B49884400E0B1D2 /* UITextFieldExtension.swift */; };
 		C12C4A932B49887400E0B1D2 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C4A922B49887400E0B1D2 /* UIColorExtension.swift */; };
+		C17917152C02121F0005E1B1 /* RoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17917142C02121F0005E1B1 /* RoleView.swift */; };
+		C17917172C02122F0005E1B1 /* RoleSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17917162C02122F0005E1B1 /* RoleSelectionViewController.swift */; };
+		C17917192C0249020005E1B1 /* RoleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17917182C0249020005E1B1 /* RoleSelectionView.swift */; };
+		C1797CBA2BF104FF000D6934 /* RealmMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1797CB92BF104FF000D6934 /* RealmMigrator.swift */; };
 		C1C3A2C32B3B267A009014F7 /* JWTAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */; };
 		C1C3A2C62B3B2751009014F7 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C52B3B2751009014F7 /* JWTDecode */; };
 		C1C3A2C92B3B2FE6009014F7 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C82B3B2FE6009014F7 /* KeychainSwift */; };
@@ -23,9 +36,33 @@
 		C1E35E1E2B374EC7006E4AE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1E35E1D2B374EC7006E4AE4 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C1030B0A2BE57AFA0015820C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C1030B0B2BE57AFB0015820C /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		C1030AF22BE51F2F0015820C /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		C1030AF52BE522D90015820C /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		C1030AFD2BE5252F0015820C /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		C1030B052BE54A4B0015820C /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
+		C1030B072BE54AB00015820C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C1030B0C2BE690470015820C /* RealmExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
 		C12C4A902B49884400E0B1D2 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		C12C4A922B49887400E0B1D2 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		C17917142C02121F0005E1B1 /* RoleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleView.swift; sourceTree = "<group>"; };
+		C17917162C02122F0005E1B1 /* RoleSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionViewController.swift; sourceTree = "<group>"; };
+		C17917182C0249020005E1B1 /* RoleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionView.swift; sourceTree = "<group>"; };
+		C1797CB92BF104FF000D6934 /* RealmMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMigrator.swift; sourceTree = "<group>"; };
 		C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTAuthentication.swift; sourceTree = "<group>"; };
 		C1C3A2CA2B3B3105009014F7 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		C1C3A2CF2B45AE8E009014F7 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +82,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1030B032BE549B90015820C /* RealmSwift in Frameworks */,
+				C1030AF92BE524740015820C /* Alamofire in Frameworks */,
 				C1C3A2C92B3B2FE6009014F7 /* KeychainSwift in Frameworks */,
 				C1C3A2C62B3B2751009014F7 /* JWTDecode in Frameworks */,
 			);
@@ -53,19 +92,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1030AF42BE522C50015820C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */,
+				C1030AF52BE522D90015820C /* AuthenticationService.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		C1030AFC2BE5251D0015820C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C1030B042BE54A030015820C /* Realm */,
+				C1030AFD2BE5252F0015820C /* AuthResponse.swift */,
+				C1030B072BE54AB00015820C /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C1030B042BE54A030015820C /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				C1030B052BE54A4B0015820C /* UserDB.swift */,
+			);
+			path = Realm;
+			sourceTree = "<group>";
+		};
 		C12C4A8F2B49881E00E0B1D2 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				C12C4A902B49884400E0B1D2 /* UITextFieldExtension.swift */,
 				C12C4A922B49887400E0B1D2 /* UIColorExtension.swift */,
+				C1030B0C2BE690470015820C /* RealmExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C1797CB82BF104E8000D6934 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C1797CB92BF104FF000D6934 /* RealmMigrator.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		C1C3A2CC2B3B31C7009014F7 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */,
+				C1030AF42BE522C50015820C /* Authentication */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -76,6 +151,8 @@
 				C1C3A2D52B45B10B009014F7 /* AuthenticationView.swift */,
 				C1C3A2D92B45B166009014F7 /* SignUpView.swift */,
 				C1C3A2DB2B45B177009014F7 /* LoginView.swift */,
+				C17917142C02121F0005E1B1 /* RoleView.swift */,
+				C17917182C0249020005E1B1 /* RoleSelectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -83,6 +160,7 @@
 		C1C3A2D42B45AEA3009014F7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				C1030AF22BE51F2F0015820C /* AuthenticationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -106,6 +184,7 @@
 		C1E35E132B374EC6006E4AE4 /* FoodRescue */ = {
 			isa = PBXGroup;
 			children = (
+				C1797CB82BF104E8000D6934 /* Helpers */,
 				C12C4A8F2B49881E00E0B1D2 /* Extensions */,
 				C1C3A2CC2B3B31C7009014F7 /* API */,
 				C1E35E282B374F15006E4AE4 /* Authentication */,
@@ -120,11 +199,13 @@
 		C1E35E282B374F15006E4AE4 /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				C1030AFC2BE5251D0015820C /* Models */,
 				C1C3A2D42B45AEA3009014F7 /* ViewModels */,
 				C1C3A2D32B45AE9E009014F7 /* Views */,
 				C1C3A2CA2B3B3105009014F7 /* AuthenticationViewController.swift */,
 				C1C3A2CF2B45AE8E009014F7 /* LogInViewController.swift */,
 				C1C3A2D12B45AE98009014F7 /* SignUpViewController.swift */,
+				C17917162C02122F0005E1B1 /* RoleSelectionViewController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -139,6 +220,7 @@
 				C1E35E0D2B374EC6006E4AE4 /* Sources */,
 				C1E35E0E2B374EC6006E4AE4 /* Frameworks */,
 				C1E35E0F2B374EC6006E4AE4 /* Resources */,
+				C1030B0A2BE57AFA0015820C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,6 +230,8 @@
 			packageProductDependencies = (
 				C1C3A2C52B3B2751009014F7 /* JWTDecode */,
 				C1C3A2C82B3B2FE6009014F7 /* KeychainSwift */,
+				C1030AF82BE524740015820C /* Alamofire */,
+				C1030B022BE549B90015820C /* RealmSwift */,
 			);
 			productName = FoodRescue;
 			productReference = C1E35E112B374EC6006E4AE4 /* FoodRescue.app */;
@@ -180,6 +264,8 @@
 			packageReferences = (
 				C1C3A2C42B3B2751009014F7 /* XCRemoteSwiftPackageReference "JWTDecode" */,
 				C1C3A2C72B3B2FE6009014F7 /* XCRemoteSwiftPackageReference "keychain-swift" */,
+				C1030AF72BE524740015820C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				C1030AFF2BE549B90015820C /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = C1E35E122B374EC6006E4AE4 /* Products */;
 			projectDirPath = "";
@@ -206,16 +292,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C17917172C02122F0005E1B1 /* RoleSelectionViewController.swift in Sources */,
+				C1030AF32BE51F2F0015820C /* AuthenticationViewModel.swift in Sources */,
 				C1C3A2DC2B45B177009014F7 /* LoginView.swift in Sources */,
+				C17917192C0249020005E1B1 /* RoleSelectionView.swift in Sources */,
+				C1030B0D2BE690470015820C /* RealmExtension.swift in Sources */,
 				C1C3A2D22B45AE98009014F7 /* SignUpViewController.swift in Sources */,
 				C1C3A2CB2B3B3105009014F7 /* AuthenticationViewController.swift in Sources */,
+				C1030B082BE54AB00015820C /* User.swift in Sources */,
+				C1030AFE2BE5252F0015820C /* AuthResponse.swift in Sources */,
 				C1C3A2C32B3B267A009014F7 /* JWTAuthentication.swift in Sources */,
+				C1030B062BE54A4B0015820C /* UserDB.swift in Sources */,
 				C1C3A2D62B45B10B009014F7 /* AuthenticationView.swift in Sources */,
+				C17917152C02121F0005E1B1 /* RoleView.swift in Sources */,
 				C12C4A912B49884400E0B1D2 /* UITextFieldExtension.swift in Sources */,
 				C12C4A932B49887400E0B1D2 /* UIColorExtension.swift in Sources */,
 				C1C3A2DA2B45B166009014F7 /* SignUpView.swift in Sources */,
+				C1797CBA2BF104FF000D6934 /* RealmMigrator.swift in Sources */,
 				C1E35E152B374EC6006E4AE4 /* AppDelegate.swift in Sources */,
 				C1C3A2D02B45AE8E009014F7 /* LogInViewController.swift in Sources */,
+				C1030AF62BE522DA0015820C /* AuthenticationService.swift in Sources */,
 				C1E35E172B374EC6006E4AE4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -417,6 +513,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C1030AF72BE524740015820C /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		C1030AFF2BE549B90015820C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		C1C3A2C42B3B2751009014F7 /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
@@ -436,6 +548,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C1030AF82BE524740015820C /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1030AF72BE524740015820C /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		C1030B022BE549B90015820C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1030AFF2BE549B90015820C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		C1C3A2C52B3B2751009014F7 /* JWTDecode */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C1C3A2C42B3B2751009014F7 /* XCRemoteSwiftPackageReference "JWTDecode" */;

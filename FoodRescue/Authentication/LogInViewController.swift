@@ -16,6 +16,7 @@ class LogInViewController: AuthenticationViewController {
         loginView.setConstraints()
         
         loginView.changeAuthTypeButton.addTarget(self, action: #selector(presentSignUpController), for: .touchUpInside)
+        loginView.confirmButton.addTarget(self, action: #selector(login), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -26,5 +27,23 @@ class LogInViewController: AuthenticationViewController {
         let signUpController = SignUpViewController()
         signUpController.modalPresentationStyle = .fullScreen
         self.present(signUpController, animated: false)
+    }
+    
+    @objc func login() {
+        guard let username = authenticationView.userNameField.text,
+              let password = authenticationView.passwordField.text
+        else { return }
+        
+        authenticationViewModel.login(username: username, password: password)
+    }
+    
+    override func handleAuthentication(with result: Result<Void, Error>) {
+        switch result {
+        case .success():
+            print("Successful Login!")
+
+        case .failure(let error):
+            print(error)
+        }
     }
 }
