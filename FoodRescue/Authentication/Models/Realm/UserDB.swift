@@ -17,7 +17,7 @@ class UserDB: Object {
     convenience init(user: User) {
         self.init()
         
-        self.id = UUID().uuidString.lowercased()
+        self.id = user.id
         self.username = user.username
         self.email = user.email
         self.role = user.role

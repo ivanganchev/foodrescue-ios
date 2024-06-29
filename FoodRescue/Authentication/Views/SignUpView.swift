@@ -9,6 +9,10 @@ import UIKit
 
 class SignUpView: AuthenticationView {
     var emailField = UITextField()
+    override var successText: String {
+        return "Sign up Successful"
+    }
+    
     override var allFields: [UITextField] {
        [userNameField, passwordField, emailField]
     }

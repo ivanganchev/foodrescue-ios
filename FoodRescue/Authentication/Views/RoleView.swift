@@ -8,12 +8,7 @@
 import UIKit
 
 protocol RoleViewTapDelegate: AnyObject {
-    func handleTap(_ roleType: RoleType)
-}
-
-enum RoleType {
-    case customer
-    case owner
+    func handleTap(_ roleType: Role)
 }
 
 class RoleView: UIView {
@@ -21,9 +16,9 @@ class RoleView: UIView {
     private var roleDescription = UILabel()
     private var roleIcon = UIImageView()
     weak var delegate: RoleViewTapDelegate?
-    private var roleType: RoleType
+    private var roleType: Role
     
-    init(roleTitleText: String, roleDescriptionText: String, roleIconImage: UIImage, roleType: RoleType) {
+    init(roleTitleText: String, roleDescriptionText: String, roleIconImage: UIImage, roleType: Role) {
         self.roleType = roleType
         super.init(frame: .zero)
         

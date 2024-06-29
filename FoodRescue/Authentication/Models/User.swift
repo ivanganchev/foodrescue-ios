@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 
 enum Role: String, PersistableEnum, Codable {
-    case Client = "Client"
+    case Customer = "Customer"
     case Owner = "Owner"
     
     init(from decoder: Decoder) throws {
@@ -17,8 +17,8 @@ enum Role: String, PersistableEnum, Codable {
         let rawValue = try container.decode(String.self)
 
         switch rawValue {
-        case "Client":
-            self = .Client
+        case "Customer":
+            self = .Customer
         case "Owner":
             self = .Owner
         default:
@@ -31,8 +31,9 @@ enum Role: String, PersistableEnum, Codable {
 }
 
 struct User: Codable {
-    var username: String?
-    var email: String?
+    var id: String
+    var username: String
+    var email: String
     var role: Role?
 }
 

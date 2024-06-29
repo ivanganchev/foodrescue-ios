@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: AuthenticationViewController {    
+class SignUpViewController: AuthenticationViewController {        
     init() {
         let signUpView = SignUpView()
         super.init(view: signUpView)
@@ -39,11 +39,15 @@ class SignUpViewController: AuthenticationViewController {
     
     override func handleAuthentication(with result: Result<Void, Error>) {
         switch result {
-        case .success():
+        case .success(let userId):
             print("Successful Sign Up!")
             
-            self.present(RoleSelectionViewController(), animated: true, completion: nil)
-
+            let roleSelectionViewController = RoleSelectionViewController()
+            roleSelectionViewController.modalPresentationStyle = .fullScreen
+            
+            authenticationView.successCheckmarkView.show(completion: {
+                self.present(roleSelectionViewController, animated: true, completion: nil)
+            })
         case .failure(let error):
             print(error)
         }

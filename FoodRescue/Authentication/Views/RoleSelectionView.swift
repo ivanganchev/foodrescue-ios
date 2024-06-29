@@ -12,14 +12,16 @@ class RoleSelectionView: UIView {
     let customerRoleView = RoleView(roleTitleText: "Customer",
                                     roleDescriptionText: "Choose from different variations of restaurants and buy hugely discounted food",
                                     roleIconImage: UIImage(systemName: "takeoutbag.and.cup.and.straw.fill") ?? UIImage(), 
-                                    roleType: .customer)
+                                    roleType: .Customer)
     
     let ownerRoleView = RoleView(roleTitleText: "Owner",
                                  roleDescriptionText: "Be able to add your own restaurant and sell food for the community!",
                                  roleIconImage: UIImage(systemName: "fork.knife.circle") ?? UIImage(),
-                                 roleType: .owner)
+                                 roleType: .Owner)
     
     let confirmButton = UIButton()
+    
+    var currentlySelectedRole: Role?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -93,9 +95,10 @@ class RoleSelectionView: UIView {
 }
 
 extension RoleSelectionView: RoleViewTapDelegate {
-    func handleTap(_ roleType: RoleType) {
+    func handleTap(_ roleType: Role) {
         disableConfirmButton(false)
-        customerRoleView.setSelectedStyle(roleType == .customer ? true : false)
-        ownerRoleView.setSelectedStyle(roleType == .owner ? true : false)
+        customerRoleView.setSelectedStyle(roleType == .Customer ? true : false)
+        ownerRoleView.setSelectedStyle(roleType == .Owner ? true : false)
+        currentlySelectedRole = roleType
     }
 }

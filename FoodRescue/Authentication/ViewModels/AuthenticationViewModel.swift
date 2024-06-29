@@ -13,15 +13,15 @@ class AuthenticationViewModel {
     var authenticationResultHandler: ((Result<Void, Error>) -> Void)?
     
     func login(username: String, password: String) {
-        authService.login(username: username, password: password, completion: { [weak self] result in
-            guard let authenticationResultHandler = self?.authenticationResultHandler else { return }
+        authService.login(username: username, password: password, completion: { result in
+            guard let authenticationResultHandler = self.authenticationResultHandler else { return }
             authenticationResultHandler(result)
         })
     }
     
     func register(username: String, email: String, password: String) {
-        authService.register(username: username, email: email, password: password, completion: { [weak self] result in
-            guard let authenticationResultHandler = self?.authenticationResultHandler else { return }
+        authService.register(username: username, email: email, password: password, completion: { result in
+            guard let authenticationResultHandler = self.authenticationResultHandler else { return }
             authenticationResultHandler(result)
         })
     }

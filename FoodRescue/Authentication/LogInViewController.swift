@@ -39,9 +39,16 @@ class LogInViewController: AuthenticationViewController {
     
     override func handleAuthentication(with result: Result<Void, Error>) {
         switch result {
-        case .success():
+            //TODO: make optional userId
+        case .success(let userId):
             print("Successful Login!")
-
+            
+            let dashboardViewController = DashboardViewController()
+            dashboardViewController.modalPresentationStyle = .fullScreen
+            
+            authenticationView.successCheckmarkView.show(completion: {
+                self.present(dashboardViewController, animated: true, completion: nil)
+            })
         case .failure(let error):
             print(error)
         }

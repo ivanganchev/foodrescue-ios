@@ -7,4 +7,8 @@
 
 import UIKit
 
-class LoginView: AuthenticationView {}
+class LoginView: AuthenticationView {
+    override var successText: String {
+        return "Login Successful"
+    }
+}

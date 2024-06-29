@@ -31,9 +31,13 @@
 		C1C3A2D62B45B10B009014F7 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2D52B45B10B009014F7 /* AuthenticationView.swift */; };
 		C1C3A2DA2B45B166009014F7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2D92B45B166009014F7 /* SignUpView.swift */; };
 		C1C3A2DC2B45B177009014F7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2DB2B45B177009014F7 /* LoginView.swift */; };
+		C1DCDA922C1DD09B0087719B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DCDA912C1DD09B0087719B /* DashboardViewController.swift */; };
+		C1DCDA952C1DD6190087719B /* SuccessCheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DCDA942C1DD6190087719B /* SuccessCheckmarkView.swift */; };
 		C1E35E152B374EC6006E4AE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E35E142B374EC6006E4AE4 /* AppDelegate.swift */; };
 		C1E35E172B374EC6006E4AE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E35E162B374EC6006E4AE4 /* SceneDelegate.swift */; };
 		C1E35E1E2B374EC7006E4AE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1E35E1D2B374EC7006E4AE4 /* Assets.xcassets */; };
+		C1F1AA5C2C15AD7C00D10982 /* RoleSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F1AA5B2C15AD7C00D10982 /* RoleSelectionViewModel.swift */; };
+		C1F1AA5E2C15ADE500D10982 /* RoleSelectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F1AA5D2C15ADE500D10982 /* RoleSelectionService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -70,11 +74,15 @@
 		C1C3A2D52B45B10B009014F7 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		C1C3A2D92B45B166009014F7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		C1C3A2DB2B45B177009014F7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C1DCDA912C1DD09B0087719B /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		C1DCDA942C1DD6190087719B /* SuccessCheckmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessCheckmarkView.swift; sourceTree = "<group>"; };
 		C1E35E112B374EC6006E4AE4 /* FoodRescue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodRescue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E35E142B374EC6006E4AE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1E35E162B374EC6006E4AE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C1E35E1D2B374EC7006E4AE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C1E35E222B374EC7006E4AE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C1F1AA5B2C15AD7C00D10982 /* RoleSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionViewModel.swift; sourceTree = "<group>"; };
+		C1F1AA5D2C15ADE500D10982 /* RoleSelectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,7 @@
 			children = (
 				C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */,
 				C1030AF52BE522D90015820C /* AuthenticationService.swift */,
+				C1F1AA5D2C15ADE500D10982 /* RoleSelectionService.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -161,8 +170,25 @@
 			isa = PBXGroup;
 			children = (
 				C1030AF22BE51F2F0015820C /* AuthenticationViewModel.swift */,
+				C1F1AA5B2C15AD7C00D10982 /* RoleSelectionViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		C1DCDA902C1DD01E0087719B /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				C1DCDA912C1DD09B0087719B /* DashboardViewController.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		C1DCDA932C1DD5DD0087719B /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				C1DCDA942C1DD6190087719B /* SuccessCheckmarkView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		C1E35E082B374EC6006E4AE4 = {
@@ -184,6 +210,8 @@
 		C1E35E132B374EC6006E4AE4 /* FoodRescue */ = {
 			isa = PBXGroup;
 			children = (
+				C1DCDA932C1DD5DD0087719B /* CustomViews */,
+				C1DCDA902C1DD01E0087719B /* Dashboard */,
 				C1797CB82BF104E8000D6934 /* Helpers */,
 				C12C4A8F2B49881E00E0B1D2 /* Extensions */,
 				C1C3A2CC2B3B31C7009014F7 /* API */,
@@ -293,12 +321,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				C17917172C02122F0005E1B1 /* RoleSelectionViewController.swift in Sources */,
+				C1F1AA5C2C15AD7C00D10982 /* RoleSelectionViewModel.swift in Sources */,
+				C1F1AA5E2C15ADE500D10982 /* RoleSelectionService.swift in Sources */,
 				C1030AF32BE51F2F0015820C /* AuthenticationViewModel.swift in Sources */,
 				C1C3A2DC2B45B177009014F7 /* LoginView.swift in Sources */,
 				C17917192C0249020005E1B1 /* RoleSelectionView.swift in Sources */,
 				C1030B0D2BE690470015820C /* RealmExtension.swift in Sources */,
+				C1DCDA922C1DD09B0087719B /* DashboardViewController.swift in Sources */,
 				C1C3A2D22B45AE98009014F7 /* SignUpViewController.swift in Sources */,
 				C1C3A2CB2B3B3105009014F7 /* AuthenticationViewController.swift in Sources */,
+				C1DCDA952C1DD6190087719B /* SuccessCheckmarkView.swift in Sources */,
 				C1030B082BE54AB00015820C /* User.swift in Sources */,
 				C1030AFE2BE5252F0015820C /* AuthResponse.swift in Sources */,
 				C1C3A2C32B3B267A009014F7 /* JWTAuthentication.swift in Sources */,

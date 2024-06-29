@@ -38,6 +38,7 @@ class AuthenticationService {
     
     func register(username: String, email: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
         let parameters: [String: Any] =  [
+            "userId": UUID().uuidString.lowercased(),
             "username": username,
             "email": email,
             "password": password
@@ -71,7 +72,8 @@ class AuthenticationService {
         
         do {
             let realm = try Realm()
-            let user = UserDB(user: User(username: authResponse.user.username,
+            let user = UserDB(user: User(id: authResponse.user.id,
+                                         username: authResponse.user.username,
                                          email: authResponse.user.email,
                                          role: authResponse.user.role))
             

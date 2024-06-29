@@ -33,6 +33,14 @@ class AuthenticationView: UIView {
        [userNameField, passwordField]
     }
     
+    var successText: String {
+        return ""
+    }
+    
+    lazy var successCheckmarkView: SuccessCheckmarkView = {
+        SuccessCheckmarkView(message: successText)
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -109,7 +117,7 @@ class AuthenticationView: UIView {
         confirmButton.layer.cornerRadius = 5
         confirmButton.setTitle(text, for: .normal)
         
-        disableConfirmButton(true)
+        disableConfirmButton(false)
     }
     
     func setConstraints() {
@@ -119,6 +127,7 @@ class AuthenticationView: UIView {
         self.fieldsView.addSubview(passwordField)
         self.addSubview(changeAuthTypeButton)
         self.addSubview(confirmButton)
+        self.addSubview(successCheckmarkView)
         
         let guide = self.safeAreaLayoutGuide
         
@@ -151,7 +160,10 @@ class AuthenticationView: UIView {
             confirmButton.topAnchor.constraint(equalTo: fieldsView.bottomAnchor, constant: 100),
             confirmButton.leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: 30),
             confirmButton.trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: -30),
-            confirmButton.heightAnchor.constraint(equalToConstant: 50)
+            confirmButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            successCheckmarkView.centerXAnchor.constraint(equalTo: guide.centerXAnchor),
+            successCheckmarkView.centerYAnchor.constraint(equalTo: guide.centerYAnchor, constant: 30)
         ])
     }
     
