@@ -14,7 +14,6 @@ class JWTAuthentication {
     
     func storeJWToken(_ jwt: String) {
         keychain.set(jwt, forKey: "token")
-        print("Successfully saved token")
     }
     
     func getDecodedUserId() -> String? {
@@ -26,5 +25,9 @@ class JWTAuthentication {
         }
         
         return decodedToken.body["id"] as? String
+    }
+    
+    func deleteJWToken() {
+        keychain.delete("token")
     }
 }

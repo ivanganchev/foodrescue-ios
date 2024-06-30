@@ -62,6 +62,23 @@ class AuthenticationService {
         }
     }
     
+    func verifyToken(completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let token = jwtAuthenticator.keychain.get("token") else { return }
+        
+        let headers: HTTPHeaders = [
+            "Authorization": token
+        ]
+        
+        AF.request("https://foodrescue-api.onrender.com/users/verify-token", headers: headers).responseData { response in
+            switch response.result {
+            case .success(let data):
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
     private func saveUserDataLocally(_ authResponse: AuthResponse) {
         guard let token = authResponse.token else {
             print("No token provided")

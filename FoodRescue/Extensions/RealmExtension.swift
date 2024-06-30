@@ -26,4 +26,11 @@ extension Realm {
             realm.delete(objToDelete)
         }
     }
+    
+    static func reset() {
+        guard let realm = try? Realm() else { return }
+        try? realm.write {
+            realm.deleteAll()
+        }
+    }
 }
