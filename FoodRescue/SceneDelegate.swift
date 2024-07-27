@@ -12,27 +12,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     let jwtAuthenticator = JWTAuthentication()
+    let authService = AuthenticationService()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-        showLogin()
+
+        authService.verifyToken(completion: { result in
+            switch result {
+            case .success(()):
+                let dashboardViewController = DashboardViewController()
+                self.setRootViewController(dashboardViewController, for: scene as! UIWindowScene)
+            case .failure(_):
+                self.showLogin()
+            }
+        })
     }
-    
+
     func logout() {
         Realm.reset()
         showLogin()
         jwtAuthenticator.deleteJWToken()
     }
-    
+
     func showLogin() {
+        let loginViewController = LogInViewController()
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-        
-        let rootViewController = LogInViewController()
-        
+        setRootViewController(loginViewController, for: windowScene)
+    }
+
+    private func setRootViewController(_ viewController: UIViewController, for windowScene: UIWindowScene) {
         let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = rootViewController
+        window.rootViewController = viewController
         self.window = window
         window.makeKeyAndVisible()
     }

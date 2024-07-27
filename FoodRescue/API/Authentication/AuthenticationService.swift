@@ -63,7 +63,11 @@ class AuthenticationService {
     }
     
     func verifyToken(completion: @escaping (Result<Void, Error>) -> Void) {
-        guard let token = jwtAuthenticator.keychain.get("token") else { return }
+        guard let token = jwtAuthenticator.keychain.get("token") else {
+            let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: "No token"])
+            completion(.failure(error))
+            return
+        }
         
         let headers: HTTPHeaders = [
             "Authorization": token
@@ -71,8 +75,13 @@ class AuthenticationService {
         
         AF.request("https://foodrescue-api.onrender.com/users/verify-token", headers: headers).responseData { response in
             switch response.result {
-            case .success(let data):
-                completion(.success(()))
+            case .success(_):
+                if let httpResponse = response.response, httpResponse.statusCode == 200 {
+                    completion(.success(()))
+                } else {
+                    let error = NSError(domain: "", code: response.response?.statusCode ?? 0, userInfo: [NSLocalizedDescriptionKey: "Invalid token"])
+                    completion(.failure(error))
+                }
             case .failure(let error):
                 completion(.failure(error))
             }
