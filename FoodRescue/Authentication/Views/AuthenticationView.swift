@@ -117,7 +117,7 @@ class AuthenticationView: UIView {
         confirmButton.layer.cornerRadius = 5
         confirmButton.setTitle(text, for: .normal)
         
-        disableConfirmButton(false)
+        disableConfirmButton(true)
     }
     
     func setConstraints() {
