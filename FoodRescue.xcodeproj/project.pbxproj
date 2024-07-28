@@ -31,7 +31,9 @@
 		C1C3A2D62B45B10B009014F7 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2D52B45B10B009014F7 /* AuthenticationView.swift */; };
 		C1C3A2DA2B45B166009014F7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2D92B45B166009014F7 /* SignUpView.swift */; };
 		C1C3A2DC2B45B177009014F7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2DB2B45B177009014F7 /* LoginView.swift */; };
-		C1DCDA922C1DD09B0087719B /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DCDA912C1DD09B0087719B /* DashboardViewController.swift */; };
+		C1DBD2202C565BDE004A1FD4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD21F2C565BDE004A1FD4 /* HomeViewController.swift */; };
+		C1DBD2222C566104004A1FD4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD2212C566104004A1FD4 /* MapViewController.swift */; };
+		C1DCDA922C1DD09B0087719B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DCDA912C1DD09B0087719B /* TabBarController.swift */; };
 		C1DCDA952C1DD6190087719B /* SuccessCheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DCDA942C1DD6190087719B /* SuccessCheckmarkView.swift */; };
 		C1E35E152B374EC6006E4AE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E35E142B374EC6006E4AE4 /* AppDelegate.swift */; };
 		C1E35E172B374EC6006E4AE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E35E162B374EC6006E4AE4 /* SceneDelegate.swift */; };
@@ -74,7 +76,9 @@
 		C1C3A2D52B45B10B009014F7 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		C1C3A2D92B45B166009014F7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		C1C3A2DB2B45B177009014F7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		C1DCDA912C1DD09B0087719B /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		C1DBD21F2C565BDE004A1FD4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C1DBD2212C566104004A1FD4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C1DCDA912C1DD09B0087719B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C1DCDA942C1DD6190087719B /* SuccessCheckmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessCheckmarkView.swift; sourceTree = "<group>"; };
 		C1E35E112B374EC6006E4AE4 /* FoodRescue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodRescue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1E35E142B374EC6006E4AE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,7 +182,9 @@
 		C1DCDA902C1DD01E0087719B /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
-				C1DCDA912C1DD09B0087719B /* DashboardViewController.swift */,
+				C1DCDA912C1DD09B0087719B /* TabBarController.swift */,
+				C1DBD21F2C565BDE004A1FD4 /* HomeViewController.swift */,
+				C1DBD2212C566104004A1FD4 /* MapViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -327,7 +333,8 @@
 				C1C3A2DC2B45B177009014F7 /* LoginView.swift in Sources */,
 				C17917192C0249020005E1B1 /* RoleSelectionView.swift in Sources */,
 				C1030B0D2BE690470015820C /* RealmExtension.swift in Sources */,
-				C1DCDA922C1DD09B0087719B /* DashboardViewController.swift in Sources */,
+				C1DBD2202C565BDE004A1FD4 /* HomeViewController.swift in Sources */,
+				C1DCDA922C1DD09B0087719B /* TabBarController.swift in Sources */,
 				C1C3A2D22B45AE98009014F7 /* SignUpViewController.swift in Sources */,
 				C1C3A2CB2B3B3105009014F7 /* AuthenticationViewController.swift in Sources */,
 				C1DCDA952C1DD6190087719B /* SuccessCheckmarkView.swift in Sources */,
@@ -341,6 +348,7 @@
 				C12C4A932B49887400E0B1D2 /* UIColorExtension.swift in Sources */,
 				C1C3A2DA2B45B166009014F7 /* SignUpView.swift in Sources */,
 				C1797CBA2BF104FF000D6934 /* RealmMigrator.swift in Sources */,
+				C1DBD2222C566104004A1FD4 /* MapViewController.swift in Sources */,
 				C1E35E152B374EC6006E4AE4 /* AppDelegate.swift in Sources */,
 				C1C3A2D02B45AE8E009014F7 /* LogInViewController.swift in Sources */,
 				C1030AF62BE522DA0015820C /* AuthenticationService.swift in Sources */,

@@ -38,7 +38,7 @@ class RoleSelectionViewController: UIViewController {
         case .success():
             print("Successful Role selected!")
             
-            let dashboardViewController = DashboardViewController()
+            let dashboardViewController = TabBarController()
             dashboardViewController.modalPresentationStyle = .fullScreen
 
             self.present(dashboardViewController, animated: true, completion: nil)

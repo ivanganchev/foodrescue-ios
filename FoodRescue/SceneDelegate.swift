@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         authService.verifyToken(completion: { result in
             switch result {
             case .success(()):
-                let dashboardViewController = DashboardViewController()
+                let dashboardViewController = TabBarController()
                 self.setRootViewController(dashboardViewController, for: scene as! UIWindowScene)
             case .failure(_):
                 self.showLogin()

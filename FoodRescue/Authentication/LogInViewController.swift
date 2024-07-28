@@ -43,7 +43,7 @@ class LogInViewController: AuthenticationViewController {
         case .success(let userId):
             print("Successful Login!")
             
-            let dashboardViewController = DashboardViewController()
+            let dashboardViewController = TabBarController()
             dashboardViewController.modalPresentationStyle = .fullScreen
             
             authenticationView.successCheckmarkView.show(completion: {
