@@ -24,7 +24,9 @@ class TabBarController: UITabBarController {
         secondNavController.tabBarItem.title = "Map"
         secondNavController.tabBarItem.image = UIImage(systemName: "map")
         
-        // Set the view controllers of the tab bar controller
+        self.tabBar.isTranslucent = false
+        self.tabBar.backgroundColor = .white
+        
         self.viewControllers = [firstNavController, secondNavController]
     }
 }

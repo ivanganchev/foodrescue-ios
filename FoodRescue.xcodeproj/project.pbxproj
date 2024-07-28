@@ -33,6 +33,8 @@
 		C1C3A2DC2B45B177009014F7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2DB2B45B177009014F7 /* LoginView.swift */; };
 		C1DBD2202C565BDE004A1FD4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD21F2C565BDE004A1FD4 /* HomeViewController.swift */; };
 		C1DBD2222C566104004A1FD4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD2212C566104004A1FD4 /* MapViewController.swift */; };
+		C1DBD2252C56724B004A1FD4 /* MapboxMaps in Frameworks */ = {isa = PBXBuildFile; productRef = C1DBD2242C56724B004A1FD4 /* MapboxMaps */; };
+		C1DBD2282C5673C3004A1FD4 /* CustomMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DBD2272C5673C3004A1FD4 /* CustomMapView.swift */; };
 		C1DCDA922C1DD09B0087719B /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DCDA912C1DD09B0087719B /* TabBarController.swift */; };
 		C1DCDA952C1DD6190087719B /* SuccessCheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DCDA942C1DD6190087719B /* SuccessCheckmarkView.swift */; };
 		C1E35E152B374EC6006E4AE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E35E142B374EC6006E4AE4 /* AppDelegate.swift */; };
@@ -78,6 +80,7 @@
 		C1C3A2DB2B45B177009014F7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C1DBD21F2C565BDE004A1FD4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C1DBD2212C566104004A1FD4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C1DBD2272C5673C3004A1FD4 /* CustomMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapView.swift; sourceTree = "<group>"; };
 		C1DCDA912C1DD09B0087719B /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C1DCDA942C1DD6190087719B /* SuccessCheckmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessCheckmarkView.swift; sourceTree = "<group>"; };
 		C1E35E112B374EC6006E4AE4 /* FoodRescue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodRescue.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +101,7 @@
 				C1030AF92BE524740015820C /* Alamofire in Frameworks */,
 				C1C3A2C92B3B2FE6009014F7 /* KeychainSwift in Frameworks */,
 				C1C3A2C62B3B2751009014F7 /* JWTDecode in Frameworks */,
+				C1DBD2252C56724B004A1FD4 /* MapboxMaps in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,9 +183,18 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		C1DBD2262C5673B1004A1FD4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C1DBD2272C5673C3004A1FD4 /* CustomMapView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		C1DCDA902C1DD01E0087719B /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				C1DBD2262C5673B1004A1FD4 /* Views */,
 				C1DCDA912C1DD09B0087719B /* TabBarController.swift */,
 				C1DBD21F2C565BDE004A1FD4 /* HomeViewController.swift */,
 				C1DBD2212C566104004A1FD4 /* MapViewController.swift */,
@@ -266,6 +279,7 @@
 				C1C3A2C82B3B2FE6009014F7 /* KeychainSwift */,
 				C1030AF82BE524740015820C /* Alamofire */,
 				C1030B022BE549B90015820C /* RealmSwift */,
+				C1DBD2242C56724B004A1FD4 /* MapboxMaps */,
 			);
 			productName = FoodRescue;
 			productReference = C1E35E112B374EC6006E4AE4 /* FoodRescue.app */;
@@ -300,6 +314,7 @@
 				C1C3A2C72B3B2FE6009014F7 /* XCRemoteSwiftPackageReference "keychain-swift" */,
 				C1030AF72BE524740015820C /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C1030AFF2BE549B90015820C /* XCRemoteSwiftPackageReference "realm-swift" */,
+				C1DBD2232C56724A004A1FD4 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
 			);
 			productRefGroup = C1E35E122B374EC6006E4AE4 /* Products */;
 			projectDirPath = "";
@@ -347,6 +362,7 @@
 				C12C4A912B49884400E0B1D2 /* UITextFieldExtension.swift in Sources */,
 				C12C4A932B49887400E0B1D2 /* UIColorExtension.swift in Sources */,
 				C1C3A2DA2B45B166009014F7 /* SignUpView.swift in Sources */,
+				C1DBD2282C5673C3004A1FD4 /* CustomMapView.swift in Sources */,
 				C1797CBA2BF104FF000D6934 /* RealmMigrator.swift in Sources */,
 				C1DBD2222C566104004A1FD4 /* MapViewController.swift in Sources */,
 				C1E35E152B374EC6006E4AE4 /* AppDelegate.swift in Sources */,
@@ -483,6 +499,7 @@
 				DEVELOPMENT_TEAM = 553GFM6GWL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FoodRescue/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = pk.eyJ1IjoiaWdhbmNoZXY0NSIsImEiOiJjbDZ3NmN6MzQwODlwM2pwOTZ5ajl1eXMxIn0.JJTIWnYqH9SlxapZMfGM1g;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -511,6 +528,7 @@
 				DEVELOPMENT_TEAM = 553GFM6GWL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FoodRescue/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = pk.eyJ1IjoiaWdhbmNoZXY0NSIsImEiOiJjbDZ3NmN6MzQwODlwM2pwOTZ5ajl1eXMxIn0.JJTIWnYqH9SlxapZMfGM1g;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -585,6 +603,14 @@
 				minimumVersion = 20.0.0;
 			};
 		};
+		C1DBD2232C56724A004A1FD4 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -607,6 +633,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C1C3A2C72B3B2FE6009014F7 /* XCRemoteSwiftPackageReference "keychain-swift" */;
 			productName = KeychainSwift;
+		};
+		C1DBD2242C56724B004A1FD4 /* MapboxMaps */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1DBD2232C56724A004A1FD4 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */;
+			productName = MapboxMaps;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
