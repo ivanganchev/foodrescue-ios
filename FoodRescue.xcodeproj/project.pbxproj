@@ -22,6 +22,9 @@
 		C17917172C02122F0005E1B1 /* RoleSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17917162C02122F0005E1B1 /* RoleSelectionViewController.swift */; };
 		C17917192C0249020005E1B1 /* RoleSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17917182C0249020005E1B1 /* RoleSelectionView.swift */; };
 		C1797CBA2BF104FF000D6934 /* RealmMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1797CB92BF104FF000D6934 /* RealmMigrator.swift */; };
+		C17A0ADA2C5E44D2002576C4 /* CameraPuckLocationConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A0AD92C5E44D2002576C4 /* CameraPuckLocationConsumer.swift */; };
+		C17A0ADC2C5E48B4002576C4 /* MapInteractionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A0ADB2C5E48B4002576C4 /* MapInteractionButton.swift */; };
+		C17A0ADF2C5E4922002576C4 /* CameraLocationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A0ADE2C5E4922002576C4 /* CameraLocationState.swift */; };
 		C1C3A2C32B3B267A009014F7 /* JWTAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */; };
 		C1C3A2C62B3B2751009014F7 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C52B3B2751009014F7 /* JWTDecode */; };
 		C1C3A2C92B3B2FE6009014F7 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C82B3B2FE6009014F7 /* KeychainSwift */; };
@@ -71,6 +74,9 @@
 		C17917162C02122F0005E1B1 /* RoleSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionViewController.swift; sourceTree = "<group>"; };
 		C17917182C0249020005E1B1 /* RoleSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionView.swift; sourceTree = "<group>"; };
 		C1797CB92BF104FF000D6934 /* RealmMigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmMigrator.swift; sourceTree = "<group>"; };
+		C17A0AD92C5E44D2002576C4 /* CameraPuckLocationConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPuckLocationConsumer.swift; sourceTree = "<group>"; };
+		C17A0ADB2C5E48B4002576C4 /* MapInteractionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractionButton.swift; sourceTree = "<group>"; };
+		C17A0ADE2C5E4922002576C4 /* CameraLocationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLocationState.swift; sourceTree = "<group>"; };
 		C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTAuthentication.swift; sourceTree = "<group>"; };
 		C1C3A2CA2B3B3105009014F7 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		C1C3A2CF2B45AE8E009014F7 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +160,14 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		C17A0ADD2C5E4913002576C4 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C17A0ADE2C5E4922002576C4 /* CameraLocationState.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		C1C3A2CC2B3B31C7009014F7 /* API */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +201,8 @@
 			isa = PBXGroup;
 			children = (
 				C1DBD2272C5673C3004A1FD4 /* CustomMapView.swift */,
+				C17A0AD92C5E44D2002576C4 /* CameraPuckLocationConsumer.swift */,
+				C17A0ADB2C5E48B4002576C4 /* MapInteractionButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -229,6 +245,7 @@
 		C1E35E132B374EC6006E4AE4 /* FoodRescue */ = {
 			isa = PBXGroup;
 			children = (
+				C17A0ADD2C5E4913002576C4 /* Utilities */,
 				C1DCDA932C1DD5DD0087719B /* CustomViews */,
 				C1DCDA902C1DD01E0087719B /* Dashboard */,
 				C1797CB82BF104E8000D6934 /* Helpers */,
@@ -348,6 +365,7 @@
 				C1C3A2DC2B45B177009014F7 /* LoginView.swift in Sources */,
 				C17917192C0249020005E1B1 /* RoleSelectionView.swift in Sources */,
 				C1030B0D2BE690470015820C /* RealmExtension.swift in Sources */,
+				C17A0ADF2C5E4922002576C4 /* CameraLocationState.swift in Sources */,
 				C1DBD2202C565BDE004A1FD4 /* HomeViewController.swift in Sources */,
 				C1DCDA922C1DD09B0087719B /* TabBarController.swift in Sources */,
 				C1C3A2D22B45AE98009014F7 /* SignUpViewController.swift in Sources */,
@@ -356,11 +374,13 @@
 				C1030B082BE54AB00015820C /* User.swift in Sources */,
 				C1030AFE2BE5252F0015820C /* AuthResponse.swift in Sources */,
 				C1C3A2C32B3B267A009014F7 /* JWTAuthentication.swift in Sources */,
+				C17A0ADA2C5E44D2002576C4 /* CameraPuckLocationConsumer.swift in Sources */,
 				C1030B062BE54A4B0015820C /* UserDB.swift in Sources */,
 				C1C3A2D62B45B10B009014F7 /* AuthenticationView.swift in Sources */,
 				C17917152C02121F0005E1B1 /* RoleView.swift in Sources */,
 				C12C4A912B49884400E0B1D2 /* UITextFieldExtension.swift in Sources */,
 				C12C4A932B49887400E0B1D2 /* UIColorExtension.swift in Sources */,
+				C17A0ADC2C5E48B4002576C4 /* MapInteractionButton.swift in Sources */,
 				C1C3A2DA2B45B166009014F7 /* SignUpView.swift in Sources */,
 				C1DBD2282C5673C3004A1FD4 /* CustomMapView.swift in Sources */,
 				C1797CBA2BF104FF000D6934 /* RealmMigrator.swift in Sources */,
@@ -499,7 +519,10 @@
 				DEVELOPMENT_TEAM = 553GFM6GWL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FoodRescue/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = pk.eyJ1IjoiaWdhbmNoZXY0NSIsImEiOiJjbDZ3NmN6MzQwODlwM2pwOTZ5ajl1eXMxIn0.JJTIWnYqH9SlxapZMfGM1g;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -528,7 +551,10 @@
 				DEVELOPMENT_TEAM = 553GFM6GWL;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FoodRescue/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = pk.eyJ1IjoiaWdhbmNoZXY0NSIsImEiOiJjbDZ3NmN6MzQwODlwM2pwOTZ5ajl1eXMxIn0.JJTIWnYqH9SlxapZMfGM1g;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -607,8 +633,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mapbox/mapbox-maps-ios";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = exactVersion;
+				version = 10.8.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

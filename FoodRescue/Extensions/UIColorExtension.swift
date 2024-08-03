@@ -12,6 +12,7 @@ extension UIColor {
     static let lightGreen = UIColor(red: 125, green: 216, blue: 125)
     static let mainGrey = UIColor(red: 105, green: 105, blue: 105)
     static let fadedGrey = UIColor(red: 155, green: 155, blue: 155)
+    static let mapButtonColor = UIColor(red: 208, green: 208, blue: 208)
     
     convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
