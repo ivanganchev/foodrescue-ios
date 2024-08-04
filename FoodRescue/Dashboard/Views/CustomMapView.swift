@@ -14,8 +14,26 @@ class CustomMapView: UIView {
     
     private var cameraLocationState = CameraLocationState(rawValue: "none")
     
-    var locateMeButton = MapInteractionButton(imageName: "location")
-    var addRestaurantButton = UIButton(type: .custom)
+    var locateMeButton = MapInteractionButton(imageName: "location",
+                                              backgroundColor: UIColor.mainGrey,
+                                              tintColor: UIColor.mapButtonColor,
+                                              cornerRadius: 8.0)
+    
+    var addRestaurantButton =  MapInteractionButton(imageName: "plus",
+                                                    text: "Add your place",
+                                                    fontSize: 14.0,
+                                                    backgroundColor: UIColor.mainGreen,
+                                                    tintColor: .white,
+                                                    cornerRadius: 12.0)
+    
+    var cancelButton =  MapInteractionButton(imageName: "xmark",
+                                                    text: "Cancel",
+                                                    fontSize: 14.0,
+                                                    backgroundColor: UIColor.mainGreen,
+                                                    tintColor: .white,
+                                                    cornerRadius: 12.0)
+    
+    var instructionText = UILabel(frame: .zero)
     
     private let followPuckOptions = FollowPuckViewportStateOptions(
         padding: UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100),
@@ -41,6 +59,8 @@ class CustomMapView: UIView {
         
         setLocateMeButton()
         setAddRestaurantButton()
+        setInstructionText()
+        setCancelButton()
         setConstraints()
     }
     
@@ -55,17 +75,26 @@ class CustomMapView: UIView {
     
     private func setAddRestaurantButton() {
         self.addRestaurantButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.addRestaurantButton.backgroundColor = UIColor.mainGreen
-        
-        self.addRestaurantButton.layer.cornerRadius = 12
-        self.addRestaurantButton.layer.masksToBounds = true
-        
-        let plusImage = UIImage(systemName: "plus")?.withTintColor(.white, renderingMode: .alwaysOriginal)
-        self.addRestaurantButton.setImage(plusImage, for: .normal)
-        
-        self.addRestaurantButton.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        self.addRestaurantButton.setTitle("Add your place", for: .normal)
+        self.addRestaurantButton.addTarget(self, action: #selector(addRestaurantTapped), for: .touchUpInside)
+        self.addRestaurantButton.isHidden = false
+    }
+    
+    private func setCancelButton() {
+        self.cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        self.cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
+        self.cancelButton.isHidden = true
+    }
+    
+    private func setInstructionText() {
+        self.instructionText.translatesAutoresizingMaskIntoConstraints = false
+        self.instructionText.backgroundColor = UIColor.mainGrey
+        self.instructionText.font = UIFont.systemFont(ofSize: 14)
+        self.instructionText.text = "Tap to finish placement"
+        self.instructionText.layer.cornerRadius = 6
+        self.instructionText.layer.masksToBounds = true
+        self.instructionText.textColor = .white
+        self.instructionText.textAlignment = .center
+        self.instructionText.isHidden = true
     }
     
     private func setConstraints() {
@@ -73,6 +102,8 @@ class CustomMapView: UIView {
         
         self.addSubview(self.locateMeButton)
         self.addSubview(self.addRestaurantButton)
+        self.addSubview(self.cancelButton)
+        self.addSubview(self.instructionText)
         
         NSLayoutConstraint.activate([
             self.locateMeButton.topAnchor.constraint(equalTo: guide.topAnchor, constant: 60),
@@ -83,7 +114,17 @@ class CustomMapView: UIView {
             self.addRestaurantButton.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -10),
             self.addRestaurantButton.heightAnchor.constraint(equalToConstant: 44),
             self.addRestaurantButton.widthAnchor.constraint(equalToConstant: 130),
-            self.addRestaurantButton.centerXAnchor.constraint(equalTo: centerXAnchor)
+            self.addRestaurantButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            self.cancelButton.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -10),
+            self.cancelButton.heightAnchor.constraint(equalToConstant: 44),
+            self.cancelButton.widthAnchor.constraint(equalToConstant: 100),
+            self.cancelButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            self.instructionText.topAnchor.constraint(equalTo: guide.topAnchor),
+            self.instructionText.centerXAnchor.constraint(equalTo: centerXAnchor),
+            self.instructionText.heightAnchor.constraint(equalToConstant: 44),
+            self.instructionText.widthAnchor.constraint(equalToConstant: 180)
         ])
     }
     
@@ -124,5 +165,17 @@ class CustomMapView: UIView {
             self.mapView.viewport.idle()
             self.mapView.location.removePuckLocationConsumer(self.cameraLocationConsumer)
         }
+    }
+    
+    @objc func addRestaurantTapped() {
+        self.instructionText.isHidden = false
+        self.addRestaurantButton.isHidden = true
+        self.cancelButton.isHidden = false
+    }
+    
+    @objc func cancelTapped() {
+        self.instructionText.isHidden = true
+        self.addRestaurantButton.isHidden = false
+        self.cancelButton.isHidden = true
     }
 }

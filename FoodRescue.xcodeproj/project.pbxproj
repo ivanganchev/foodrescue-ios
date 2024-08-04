@@ -202,7 +202,6 @@
 			children = (
 				C1DBD2272C5673C3004A1FD4 /* CustomMapView.swift */,
 				C17A0AD92C5E44D2002576C4 /* CameraPuckLocationConsumer.swift */,
-				C17A0ADB2C5E48B4002576C4 /* MapInteractionButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -222,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				C1DCDA942C1DD6190087719B /* SuccessCheckmarkView.swift */,
+				C17A0ADB2C5E48B4002576C4 /* MapInteractionButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
