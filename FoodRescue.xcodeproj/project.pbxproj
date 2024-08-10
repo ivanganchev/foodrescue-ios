@@ -25,6 +25,7 @@
 		C17A0ADA2C5E44D2002576C4 /* CameraPuckLocationConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A0AD92C5E44D2002576C4 /* CameraPuckLocationConsumer.swift */; };
 		C17A0ADC2C5E48B4002576C4 /* MapInteractionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A0ADB2C5E48B4002576C4 /* MapInteractionButton.swift */; };
 		C17A0ADF2C5E4922002576C4 /* CameraLocationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A0ADE2C5E4922002576C4 /* CameraLocationState.swift */; };
+		C17A0AE52C5F8688002576C4 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A0AE42C5F8688002576C4 /* UIImageExtension.swift */; };
 		C1C3A2C32B3B267A009014F7 /* JWTAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */; };
 		C1C3A2C62B3B2751009014F7 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C52B3B2751009014F7 /* JWTDecode */; };
 		C1C3A2C92B3B2FE6009014F7 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C82B3B2FE6009014F7 /* KeychainSwift */; };
@@ -77,6 +78,7 @@
 		C17A0AD92C5E44D2002576C4 /* CameraPuckLocationConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPuckLocationConsumer.swift; sourceTree = "<group>"; };
 		C17A0ADB2C5E48B4002576C4 /* MapInteractionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractionButton.swift; sourceTree = "<group>"; };
 		C17A0ADE2C5E4922002576C4 /* CameraLocationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLocationState.swift; sourceTree = "<group>"; };
+		C17A0AE42C5F8688002576C4 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTAuthentication.swift; sourceTree = "<group>"; };
 		C1C3A2CA2B3B3105009014F7 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		C1C3A2CF2B45AE8E009014F7 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				C12C4A902B49884400E0B1D2 /* UITextFieldExtension.swift */,
 				C12C4A922B49887400E0B1D2 /* UIColorExtension.swift */,
 				C1030B0C2BE690470015820C /* RealmExtension.swift */,
+				C17A0AE42C5F8688002576C4 /* UIImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				C17917172C02122F0005E1B1 /* RoleSelectionViewController.swift in Sources */,
 				C1F1AA5C2C15AD7C00D10982 /* RoleSelectionViewModel.swift in Sources */,
 				C1F1AA5E2C15ADE500D10982 /* RoleSelectionService.swift in Sources */,
+				C17A0AE52C5F8688002576C4 /* UIImageExtension.swift in Sources */,
 				C1030AF32BE51F2F0015820C /* AuthenticationViewModel.swift in Sources */,
 				C1C3A2DC2B45B177009014F7 /* LoginView.swift in Sources */,
 				C17917192C0249020005E1B1 /* RoleSelectionView.swift in Sources */,

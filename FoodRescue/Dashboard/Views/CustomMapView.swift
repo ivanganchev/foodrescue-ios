@@ -7,10 +7,12 @@
 
 import UIKit
 import MapboxMaps
+import AVFoundation
 
 class CustomMapView: UIView {
     private var mapView: MapView!
     var cameraLocationConsumer: CameraPuckLocationConsumer!
+    var pointAnnotationManager: PointAnnotationManager!
     
     private var cameraLocationState = CameraLocationState(rawValue: "none")
     
@@ -42,6 +44,8 @@ class CustomMapView: UIView {
     )
     private var followPuckViewportState: FollowPuckViewportState!
     
+    var canAddRestaurant = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -62,6 +66,10 @@ class CustomMapView: UIView {
         setInstructionText()
         setCancelButton()
         setConstraints()
+        
+        pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
+        
+        mapView.gestures.singleTapGestureRecognizer.addTarget(self, action: #selector(handleMapTap(_:)))
     }
     
     required init?(coder: NSCoder) {
@@ -81,7 +89,7 @@ class CustomMapView: UIView {
     
     private func setCancelButton() {
         self.cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        self.cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
+        self.cancelButton.addTarget(self, action: #selector(resetAddRestaurantState), for: .touchUpInside)
         self.cancelButton.isHidden = true
     }
     
@@ -171,11 +179,37 @@ class CustomMapView: UIView {
         self.instructionText.isHidden = false
         self.addRestaurantButton.isHidden = true
         self.cancelButton.isHidden = false
+        self.canAddRestaurant = true
     }
     
-    @objc func cancelTapped() {
+    @objc func resetAddRestaurantState() {
         self.instructionText.isHidden = true
         self.addRestaurantButton.isHidden = false
         self.cancelButton.isHidden = true
+        self.canAddRestaurant = false
+    }
+    
+    @objc func handleMapTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        if canAddRestaurant {
+            let location = gestureRecognizer.location(in: mapView)
+            let coordinate = mapView.mapboxMap.coordinate(for: location)
+            
+            createRestaurantAnnotation(at: CLLocationCoordinate2D(latitude: coordinate.latitude, 
+                                                                  longitude: coordinate.longitude))
+            resetAddRestaurantState()
+        }
+    }
+    
+    private func createRestaurantAnnotation(at location: CLLocationCoordinate2D) {
+        var restaurantPointAnnotation = PointAnnotation(coordinate: location)
+        
+        let restaurantImage = UIImage(systemName: "fork.knife.circle")
+        var resizedImage = restaurantImage?.resize(targetSize: CGSize(width: 40, height: 40))
+        
+        restaurantPointAnnotation.image = .init(image: resizedImage!, name: "fork.knife.circle")
+        restaurantPointAnnotation.textField = "Restaurant"
+        restaurantPointAnnotation.iconAnchor = .bottom
+        restaurantPointAnnotation.iconOffset = [0, -12]
+        pointAnnotationManager.annotations.append(restaurantPointAnnotation)
     }
 }

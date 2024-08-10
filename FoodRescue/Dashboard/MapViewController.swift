@@ -19,3 +19,9 @@ class MapViewController: UIViewController {
         self.view = mapView
     }
 }
+
+extension MapViewController: AnnotationInteractionDelegate {
+    public func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Annotation]) {
+        print("Annotations tapped: \(annotations)")
+    }
+}
