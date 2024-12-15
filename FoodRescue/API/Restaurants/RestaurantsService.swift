@@ -12,7 +12,7 @@ import UIKit
 class RestaurantsService {
     var jwtAuthenticator = JWTAuthentication()
     
-    func createRestaurant(name: String, description: String, image: UIImage, latitude: Double, longitude: Double, completion: @escaping (Result<Void, Error>) -> Void) {
+    func createRestaurant(name: String, description: String, image: UIImage, latitude: Double, longitude: Double, completion: @escaping (Result<Restaurant, Error>) -> Void) {
         guard let token = jwtAuthenticator.keychain.get("token") else { return }
         
         let url = "https://foodrescue-api.onrender.com/restaurants/create"
@@ -46,8 +46,8 @@ class RestaurantsService {
             switch response.result {
             case .success(let data):
                 do {
-//                    _ = try JSONDecoder().decode([Restaurant].self, from: data)
-                    completion(.success(()))
+                    let restaurantResponse = try JSONDecoder().decode(Restaurant.self, from: data)
+                    completion(.success(restaurantResponse))
                 } catch {
                     completion(.failure(error))
                 }

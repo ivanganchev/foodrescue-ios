@@ -21,7 +21,8 @@ class MapViewController: UIViewController {
             for restaurant in restaurants {
                 self?.mapView.createRestaurantAnnotation(at: CLLocationCoordinate2D(latitude: restaurant.latitude,
                                                                                     longitude: restaurant.longitude),
-                                                         name: restaurant.name)
+                                                         name: restaurant.name,
+                                                         imageUrl: restaurant.images.first ?? "")
             }
         }
     }
@@ -38,9 +39,9 @@ class MapViewController: UIViewController {
             let createRestaurantVC = CreateRestaurantViewController(latitude: coordinate.latitude, longitude: coordinate.longitude, restaurantViewModel: restaurantViewModel)
             createRestaurantVC.modalPresentationStyle = .fullScreen
             
-            createRestaurantVC.onFinishAddingRestaurant = { [weak self] name in
+            createRestaurantVC.onFinishAddingRestaurant = { [weak self] restaurant in
                 self?.mapView.createRestaurantAnnotation(at: CLLocationCoordinate2D(latitude: coordinate.latitude,
-                                                                              longitude: coordinate.longitude), name: name)
+                                                                                    longitude: coordinate.longitude), name: restaurant.name, imageUrl: restaurant.images.first ?? "")
             }
             
             self.present(createRestaurantVC, animated: true) { [weak self] in

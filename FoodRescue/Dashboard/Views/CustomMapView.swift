@@ -187,16 +187,25 @@ class CustomMapView: UIView {
         self.canAddRestaurant = false
     }
     
-    func createRestaurantAnnotation(at location: CLLocationCoordinate2D, name: String) {
-        var restaurantPointAnnotation = PointAnnotation(coordinate: location)
-        
-        let restaurantImage = UIImage(systemName: "fork.knife.circle")
-        let resizedImage = restaurantImage?.resize(targetSize: CGSize(width: 40, height: 40))
-        
-        restaurantPointAnnotation.image = .init(image: resizedImage!, name: "fork.knife.circle")
-        restaurantPointAnnotation.textField = name
-        restaurantPointAnnotation.iconAnchor = .bottom
-        restaurantPointAnnotation.iconOffset = [0, -12]
-        pointAnnotationManager.annotations.append(restaurantPointAnnotation)
+    func createRestaurantAnnotation(at location: CLLocationCoordinate2D, name: String, imageUrl: String) {
+        UIImage.from(urlString: imageUrl) { [weak self] image in
+            guard let image = image else {
+                print("Failed to load image for annotation")
+                return
+            }
+            
+            let resizedImage = image.resize(targetSize: CGSize(width: 70, height: 70))
+            let cirularImage = resizedImage.circularImage(withBorderWidth: 2, borderColor: .black)
+            
+            var restaurantPointAnnotation = PointAnnotation(coordinate: location)
+            restaurantPointAnnotation.image = .init(image: cirularImage ?? resizedImage, name: "restaurant-\(UUID().uuidString)")
+            restaurantPointAnnotation.textField = name
+            restaurantPointAnnotation.iconAnchor = .bottom
+            restaurantPointAnnotation.iconOffset = [0, -12]
+            
+            DispatchQueue.main.async {
+                self?.pointAnnotationManager.annotations.append(restaurantPointAnnotation)
+            }
+        }
     }
 }

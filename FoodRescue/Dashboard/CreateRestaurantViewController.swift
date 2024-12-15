@@ -15,7 +15,7 @@ class CreateRestaurantViewController: UIViewController {
     let restaurantLatitude: Double
     let restaurantLongitude: Double
     
-    var onFinishAddingRestaurant: ((String) -> Void)?
+    var onFinishAddingRestaurant: ((Restaurant) -> Void)?
     
     init(latitude: Double, longitude: Double, restaurantViewModel: RestaurantViewModel) {
         self.restaurantLatitude = latitude
@@ -60,9 +60,9 @@ class CreateRestaurantViewController: UIViewController {
     }
     
     private func finishAddRestaurant(name: String, description: String, image: UIImage) {
-        restaurantViewModel.createRestaurant(name: name, description: description, image: image, latitude: restaurantLatitude, longitude: restaurantLongitude) { [weak self] in
+        restaurantViewModel.createRestaurant(name: name, description: description, image: image, latitude: restaurantLatitude, longitude: restaurantLongitude) { [weak self] restaurant in
             self?.successCheckmarkView.show {
-                self?.onFinishAddingRestaurant?(name)
+                self?.onFinishAddingRestaurant?(restaurant)
                 self?.dismiss(animated: true)
             }
         }
