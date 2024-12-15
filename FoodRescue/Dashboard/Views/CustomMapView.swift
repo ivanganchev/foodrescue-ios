@@ -10,7 +10,7 @@ import MapboxMaps
 import AVFoundation
 
 class CustomMapView: UIView {
-    private var mapView: MapView!
+    var mapView: MapView!
     var cameraLocationConsumer: CameraPuckLocationConsumer!
     var pointAnnotationManager: PointAnnotationManager!
     
@@ -68,8 +68,6 @@ class CustomMapView: UIView {
         setConstraints()
         
         pointAnnotationManager = mapView.annotations.makePointAnnotationManager()
-        
-        mapView.gestures.singleTapGestureRecognizer.addTarget(self, action: #selector(handleMapTap(_:)))
     }
     
     required init?(coder: NSCoder) {
@@ -189,25 +187,14 @@ class CustomMapView: UIView {
         self.canAddRestaurant = false
     }
     
-    @objc func handleMapTap(_ gestureRecognizer: UITapGestureRecognizer) {
-        if canAddRestaurant {
-            let location = gestureRecognizer.location(in: mapView)
-            let coordinate = mapView.mapboxMap.coordinate(for: location)
-            
-            createRestaurantAnnotation(at: CLLocationCoordinate2D(latitude: coordinate.latitude, 
-                                                                  longitude: coordinate.longitude))
-            resetAddRestaurantState()
-        }
-    }
-    
-    private func createRestaurantAnnotation(at location: CLLocationCoordinate2D) {
+    func createRestaurantAnnotation(at location: CLLocationCoordinate2D, name: String) {
         var restaurantPointAnnotation = PointAnnotation(coordinate: location)
         
         let restaurantImage = UIImage(systemName: "fork.knife.circle")
-        var resizedImage = restaurantImage?.resize(targetSize: CGSize(width: 40, height: 40))
+        let resizedImage = restaurantImage?.resize(targetSize: CGSize(width: 40, height: 40))
         
         restaurantPointAnnotation.image = .init(image: resizedImage!, name: "fork.knife.circle")
-        restaurantPointAnnotation.textField = "Restaurant"
+        restaurantPointAnnotation.textField = name
         restaurantPointAnnotation.iconAnchor = .bottom
         restaurantPointAnnotation.iconOffset = [0, -12]
         pointAnnotationManager.annotations.append(restaurantPointAnnotation)
