@@ -17,6 +17,8 @@ class MapViewController: UIViewController {
         
         mapView.mapView.gestures.singleTapGestureRecognizer.addTarget(self, action: #selector(handleMapTap(_:)))
         
+        mapView.pointAnnotationManager.delegate = self
+        
         restaurantViewModel.getAllRestaurants { [weak self] restaurants in
             for restaurant in restaurants {
                 self?.mapView.createRestaurantAnnotation(at: CLLocationCoordinate2D(latitude: restaurant.latitude,
@@ -53,6 +55,12 @@ class MapViewController: UIViewController {
 
 extension MapViewController: AnnotationInteractionDelegate {
     public func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Annotation]) {
-        print("Annotations tapped: \(annotations)")
+        
+        
+//        let createMealController = CreateMealsViewController(restaurantViewModel: restaurantViewModel)
+//        createMealController.modalPresentationStyle = .fullScreen
+//        
+//        createMealController.onFinishAddingMeal = { [weak self] meal in
+//        }
     }
 }

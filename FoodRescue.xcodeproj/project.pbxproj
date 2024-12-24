@@ -16,8 +16,13 @@
 		C1030B082BE54AB00015820C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1030B072BE54AB00015820C /* User.swift */; };
 		C1030B0B2BE57AFB0015820C /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C1030B022BE549B90015820C /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		C1030B0D2BE690470015820C /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1030B0C2BE690470015820C /* RealmExtension.swift */; };
+		C12482922D1B099300BDEF81 /* CreateMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12482912D1B099300BDEF81 /* CreateMealsViewController.swift */; };
+		C12482942D1B1D6C00BDEF81 /* RestaurantDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12482932D1B1D6C00BDEF81 /* RestaurantDashboardController.swift */; };
 		C12C4A912B49884400E0B1D2 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C4A902B49884400E0B1D2 /* UITextFieldExtension.swift */; };
 		C12C4A932B49887400E0B1D2 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C4A922B49887400E0B1D2 /* UIColorExtension.swift */; };
+		C131ED782D0F24D900D34C5D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C131ED772D0F24D900D34C5D /* Meal.swift */; };
+		C131ED7A2D0F260500D34C5D /* CreateMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C131ED792D0F260500D34C5D /* CreateMealView.swift */; };
+		C131ED7E2D0F264300D34C5D /* CreateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C131ED7D2D0F264300D34C5D /* CreateContentView.swift */; };
 		C16D39FA2CFC80B30087F3CB /* RestaurantsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16D39F92CFC80B30087F3CB /* RestaurantsService.swift */; };
 		C16D39FD2CFCAE4F0087F3CB /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16D39FC2CFCAE4F0087F3CB /* Restaurant.swift */; };
 		C16D3A012CFCB0010087F3CB /* RestaurantViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16D3A002CFCB0010087F3CB /* RestaurantViewModel.swift */; };
@@ -74,8 +79,13 @@
 		C1030B052BE54A4B0015820C /* UserDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDB.swift; sourceTree = "<group>"; };
 		C1030B072BE54AB00015820C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C1030B0C2BE690470015820C /* RealmExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
+		C12482912D1B099300BDEF81 /* CreateMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMealsViewController.swift; sourceTree = "<group>"; };
+		C12482932D1B1D6C00BDEF81 /* RestaurantDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDashboardController.swift; sourceTree = "<group>"; };
 		C12C4A902B49884400E0B1D2 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		C12C4A922B49887400E0B1D2 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		C131ED772D0F24D900D34C5D /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		C131ED792D0F260500D34C5D /* CreateMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMealView.swift; sourceTree = "<group>"; };
+		C131ED7D2D0F264300D34C5D /* CreateContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContentView.swift; sourceTree = "<group>"; };
 		C16D39F92CFC80B30087F3CB /* RestaurantsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsService.swift; sourceTree = "<group>"; };
 		C16D39FC2CFCAE4F0087F3CB /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		C16D3A002CFCB0010087F3CB /* RestaurantViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantViewModel.swift; sourceTree = "<group>"; };
@@ -177,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				C16D39FC2CFCAE4F0087F3CB /* Restaurant.swift */,
+				C131ED772D0F24D900D34C5D /* Meal.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,6 +260,8 @@
 				C1DBD2272C5673C3004A1FD4 /* CustomMapView.swift */,
 				C17A0AD92C5E44D2002576C4 /* CameraPuckLocationConsumer.swift */,
 				C1FF37FC2C67B16000AE1877 /* CreateRestaurantView.swift */,
+				C131ED792D0F260500D34C5D /* CreateMealView.swift */,
+				C131ED7D2D0F264300D34C5D /* CreateContentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,6 +276,8 @@
 				C1DBD21F2C565BDE004A1FD4 /* HomeViewController.swift */,
 				C1DBD2212C566104004A1FD4 /* MapViewController.swift */,
 				C1FF37FA2C67B12B00AE1877 /* CreateRestaurantViewController.swift */,
+				C12482912D1B099300BDEF81 /* CreateMealsViewController.swift */,
+				C12482932D1B1D6C00BDEF81 /* RestaurantDashboardController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -436,15 +451,20 @@
 				C17A0ADC2C5E48B4002576C4 /* MapInteractionButton.swift in Sources */,
 				C1C3A2DA2B45B166009014F7 /* SignUpView.swift in Sources */,
 				C1DBD2282C5673C3004A1FD4 /* CustomMapView.swift in Sources */,
+				C131ED782D0F24D900D34C5D /* Meal.swift in Sources */,
 				C1797CBA2BF104FF000D6934 /* RealmMigrator.swift in Sources */,
 				C16D39FA2CFC80B30087F3CB /* RestaurantsService.swift in Sources */,
+				C12482942D1B1D6C00BDEF81 /* RestaurantDashboardController.swift in Sources */,
 				C1FF37FD2C67B16000AE1877 /* CreateRestaurantView.swift in Sources */,
 				C1DBD2222C566104004A1FD4 /* MapViewController.swift in Sources */,
+				C12482922D1B099300BDEF81 /* CreateMealsViewController.swift in Sources */,
 				C1E35E152B374EC6006E4AE4 /* AppDelegate.swift in Sources */,
 				C1C3A2D02B45AE8E009014F7 /* LogInViewController.swift in Sources */,
 				C1030AF62BE522DA0015820C /* AuthenticationService.swift in Sources */,
+				C131ED7E2D0F264300D34C5D /* CreateContentView.swift in Sources */,
 				C1FF37FB2C67B12B00AE1877 /* CreateRestaurantViewController.swift in Sources */,
 				C1E35E172B374EC6006E4AE4 /* SceneDelegate.swift in Sources */,
+				C131ED7A2D0F260500D34C5D /* CreateMealView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
