@@ -187,7 +187,7 @@ class CustomMapView: UIView {
         self.canAddRestaurant = false
     }
     
-    func createRestaurantAnnotation(at location: CLLocationCoordinate2D, name: String, imageUrl: String) {
+    func createRestaurantAnnotation(at location: CLLocationCoordinate2D, name: String, imageUrl: String, completion: @escaping (String?) -> Void) {
         UIImage.from(urlString: imageUrl) { [weak self] image in
             guard let image = image else {
                 print("Failed to load image for annotation")
@@ -205,6 +205,7 @@ class CustomMapView: UIView {
             
             DispatchQueue.main.async {
                 self?.pointAnnotationManager.annotations.append(restaurantPointAnnotation)
+                completion(restaurantPointAnnotation.id)
             }
         }
     }

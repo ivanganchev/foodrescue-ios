@@ -20,7 +20,7 @@ struct CreateContentView: View {
     var descriptionLabel: String
     var priceLabel: String?
     var cancelAction: () -> Void
-    var finishAction: (_ name: String, _ description: String, _ price: String, _ image: UIImage) -> Void
+    var finishAction: (_ name: String, _ description: String, _ price: String?, _ image: UIImage) -> Void
 
     private var priceBinding: Binding<String> {
         Binding(
@@ -97,7 +97,6 @@ struct CreateContentView: View {
                 Spacer()
 
                 Button(action: {
-                    // Trigger camera picker here if needed
                 }) {
                     HStack {
                         Image(systemName: "camera")

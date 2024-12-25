@@ -28,7 +28,7 @@ struct CreateMealView: View {
             priceLabel: "Price",
             cancelAction: cancelAction,
             finishAction: { name, description, price, image in
-                finishAction(name, description, price, image)
+                finishAction(name, description, price!, image)
             }
         )
     }

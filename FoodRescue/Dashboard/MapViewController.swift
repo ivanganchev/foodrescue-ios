@@ -11,6 +11,7 @@ import MapboxMaps
 class MapViewController: UIViewController {
     private var mapView = CustomMapView(frame: .zero)
     private let restaurantViewModel = RestaurantViewModel()
+    private var restaurants: [Restaurant] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +21,14 @@ class MapViewController: UIViewController {
         mapView.pointAnnotationManager.delegate = self
         
         restaurantViewModel.getAllRestaurants { [weak self] restaurants in
-            for restaurant in restaurants {
+            for var restaurant in restaurants {
                 self?.mapView.createRestaurantAnnotation(at: CLLocationCoordinate2D(latitude: restaurant.latitude,
                                                                                     longitude: restaurant.longitude),
                                                          name: restaurant.name,
-                                                         imageUrl: restaurant.images.first ?? "")
+                                                         imageUrl: restaurant.images.first ?? "") { annotationId in
+                    restaurant.annotationId = annotationId
+                    self?.restaurants.append(restaurant)
+                }
             }
         }
     }
@@ -42,8 +46,12 @@ class MapViewController: UIViewController {
             createRestaurantVC.modalPresentationStyle = .fullScreen
             
             createRestaurantVC.onFinishAddingRestaurant = { [weak self] restaurant in
+                var mutableRestaurant = restaurant
                 self?.mapView.createRestaurantAnnotation(at: CLLocationCoordinate2D(latitude: coordinate.latitude,
-                                                                                    longitude: coordinate.longitude), name: restaurant.name, imageUrl: restaurant.images.first ?? "")
+                                                                                    longitude: coordinate.longitude), name: restaurant.name, imageUrl: restaurant.images.first ?? "") { annotationId in
+                    mutableRestaurant.annotationId = annotationId
+                    self?.restaurants.append(mutableRestaurant)
+                }
             }
             
             self.present(createRestaurantVC, animated: true) { [weak self] in
@@ -62,5 +70,11 @@ extension MapViewController: AnnotationInteractionDelegate {
 //        
 //        createMealController.onFinishAddingMeal = { [weak self] meal in
 //        }
+        guard let tappedAnnotationRestaurant = restaurants.filter({ $0.annotationId == annotations.first?.id }).first else { return }
+        
+        let restaurantDashboard = RestaurantDashboardController(restaurant: tappedAnnotationRestaurant)
+        restaurantDashboard.modalPresentationStyle = .pageSheet
+        
+        self.present(restaurantDashboard, animated: true, completion: nil)
     }
 }

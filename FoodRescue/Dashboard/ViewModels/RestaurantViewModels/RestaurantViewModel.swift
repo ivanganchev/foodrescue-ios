@@ -11,8 +11,8 @@ import UIKit
 class RestaurantViewModel {
     let restaurantService = RestaurantsService()
     
-    func createRestaurant(name: String, description: String, image: UIImage, latitude: Double, longitude: Double, completion: @escaping (Restaurant) -> Void) {
-        restaurantService.createRestaurant(name: name, description: description, image: image, latitude: latitude , longitude: longitude, completion: { result in
+    func createRestaurant(ownerId: String, name: String, description: String, image: UIImage, latitude: Double, longitude: Double, completion: @escaping (Restaurant) -> Void) {
+        restaurantService.createRestaurant(ownerId: ownerId, name: name, description: description, image: image, latitude: latitude , longitude: longitude, completion: { result in
             switch result {
             case .success(let restaurantResponse):
                 print("Successfully created restaurant!")

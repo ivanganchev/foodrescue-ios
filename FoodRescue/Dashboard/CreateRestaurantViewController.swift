@@ -60,7 +60,7 @@ class CreateRestaurantViewController: UIViewController {
     }
     
     private func finishAddRestaurant(name: String, description: String, image: UIImage) {
-        restaurantViewModel.createRestaurant(name: name, description: description, image: image, latitude: restaurantLatitude, longitude: restaurantLongitude) { [weak self] restaurant in
+        restaurantViewModel.createRestaurant(ownerId: "", name: name, description: description, image: image, latitude: restaurantLatitude, longitude: restaurantLongitude) { [weak self] restaurant in
             self?.successCheckmarkView.show {
                 self?.onFinishAddingRestaurant?(restaurant)
                 self?.dismiss(animated: true)

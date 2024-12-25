@@ -18,6 +18,7 @@
 		C1030B0D2BE690470015820C /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1030B0C2BE690470015820C /* RealmExtension.swift */; };
 		C12482922D1B099300BDEF81 /* CreateMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12482912D1B099300BDEF81 /* CreateMealsViewController.swift */; };
 		C12482942D1B1D6C00BDEF81 /* RestaurantDashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12482932D1B1D6C00BDEF81 /* RestaurantDashboardController.swift */; };
+		C12482962D1B201F00BDEF81 /* RestaurantDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12482952D1B201F00BDEF81 /* RestaurantDashboardView.swift */; };
 		C12C4A912B49884400E0B1D2 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C4A902B49884400E0B1D2 /* UITextFieldExtension.swift */; };
 		C12C4A932B49887400E0B1D2 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C12C4A922B49887400E0B1D2 /* UIColorExtension.swift */; };
 		C131ED782D0F24D900D34C5D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C131ED772D0F24D900D34C5D /* Meal.swift */; };
@@ -81,6 +82,7 @@
 		C1030B0C2BE690470015820C /* RealmExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
 		C12482912D1B099300BDEF81 /* CreateMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMealsViewController.swift; sourceTree = "<group>"; };
 		C12482932D1B1D6C00BDEF81 /* RestaurantDashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDashboardController.swift; sourceTree = "<group>"; };
+		C12482952D1B201F00BDEF81 /* RestaurantDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDashboardView.swift; sourceTree = "<group>"; };
 		C12C4A902B49884400E0B1D2 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		C12C4A922B49887400E0B1D2 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		C131ED772D0F24D900D34C5D /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				C1FF37FC2C67B16000AE1877 /* CreateRestaurantView.swift */,
 				C131ED792D0F260500D34C5D /* CreateMealView.swift */,
 				C131ED7D2D0F264300D34C5D /* CreateContentView.swift */,
+				C12482952D1B201F00BDEF81 /* RestaurantDashboardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				C17917172C02122F0005E1B1 /* RoleSelectionViewController.swift in Sources */,
 				C1F1AA5C2C15AD7C00D10982 /* RoleSelectionViewModel.swift in Sources */,
 				C1F1AA5E2C15ADE500D10982 /* RoleSelectionService.swift in Sources */,
+				C12482962D1B201F00BDEF81 /* RestaurantDashboardView.swift in Sources */,
 				C16D3A012CFCB0010087F3CB /* RestaurantViewModel.swift in Sources */,
 				C17A0AE52C5F8688002576C4 /* UIImageExtension.swift in Sources */,
 				C1030AF32BE51F2F0015820C /* AuthenticationViewModel.swift in Sources */,

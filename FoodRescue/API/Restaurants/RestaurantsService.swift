@@ -12,7 +12,7 @@ import UIKit
 class RestaurantsService {
     var jwtAuthenticator = JWTAuthentication()
     
-    func createRestaurant(name: String, description: String, image: UIImage, latitude: Double, longitude: Double, completion: @escaping (Result<Restaurant, Error>) -> Void) {
+    func createRestaurant(ownerId: String, name: String, description: String, image: UIImage, latitude: Double, longitude: Double, completion: @escaping (Result<Restaurant, Error>) -> Void) {
         guard let token = jwtAuthenticator.keychain.get("token") else { return }
         
         let url = "https://foodrescue-api.onrender.com/restaurants/create"
@@ -28,8 +28,14 @@ class RestaurantsService {
         print("Token:", token)
         print("Token is: \(headers["Authorization"]!)")
         
+        let id = UUID().uuidString.lowercased()
+        
         AF.upload(
             multipartFormData: { multipartFormData in
+                multipartFormData.append(id.data(using: .utf8)!, withName: "id")
+                
+                multipartFormData.append(id.data(using: .utf8)!, withName: "ownerId")
+                
                 multipartFormData.append(name.data(using: .utf8)!, withName: "name")
                 
                 multipartFormData.append(description.data(using: .utf8)!, withName: "description")

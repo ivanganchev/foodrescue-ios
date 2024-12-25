@@ -14,4 +14,5 @@ struct Restaurant: Decodable {
     let images: [String]
     let latitude: Double
     let longitude: Double
+    var annotationId: String?
 }
