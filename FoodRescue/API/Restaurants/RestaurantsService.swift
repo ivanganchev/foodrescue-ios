@@ -9,9 +9,7 @@ import Foundation
 import Alamofire
 import UIKit
 
-class RestaurantsService {
-    var jwtAuthenticator = JWTAuthentication()
-    
+class RestaurantsService: BaseService {
     func createRestaurant(ownerId: String, name: String, description: String, image: UIImage, latitude: Double, longitude: Double, completion: @escaping (Result<Restaurant, Error>) -> Void) {
         guard let token = jwtAuthenticator.keychain.get("token") else { return }
         

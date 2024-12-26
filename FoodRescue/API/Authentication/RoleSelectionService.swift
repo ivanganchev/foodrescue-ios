@@ -9,9 +9,7 @@ import Foundation
 import Alamofire
 import RealmSwift
 
-class RoleSelectionService {
-    var jwtAuthenticator = JWTAuthentication()
-    
+class RoleSelectionService: BaseService {
     func selectRole(role: String, completion: @escaping (Result<Void, Error>) -> Void) {
         // TODO: Handle better failure
         guard let token = jwtAuthenticator.keychain.get("token"),
@@ -30,16 +28,11 @@ class RoleSelectionService {
         
         AF.request("https://foodrescue-api.onrender.com/users/addRole", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseData { [weak self] response in
             switch response.result {
-                case .success(let data):
-                do {                    
+                case .success(_):
                     self?.updateUserRole(role)
-                    
                     completion(.success(()))
-                } catch {
-                    print(error)
-                }
                 case .failure(let error):
-                completion(.failure(error))
+                    completion(.failure(error))
             }
         }
     }

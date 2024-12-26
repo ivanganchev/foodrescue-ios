@@ -9,9 +9,7 @@ import Foundation
 import Alamofire
 import RealmSwift
 
-class AuthenticationService {
-    var jwtAuthenticator = JWTAuthentication()
-    
+class AuthenticationService: BaseService {    
     func login(username: String, password: String, completion: @escaping (Result<Void, Error>) -> Void) {
         let parameters: [String: Any] =  [
             "username": username,
