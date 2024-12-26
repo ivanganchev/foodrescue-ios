@@ -9,14 +9,13 @@ import Foundation
 import SwiftUI
 
 struct RestaurantDashboardView: View {
-    var restaurantName: String
     @ObservedObject var viewModel: MealsViewModel
     
     var createMealAction: () -> Void
     
     var body: some View {
         VStack {
-            Text(restaurantName)
+            Text(viewModel.restaurant.name)
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.top, 20)
@@ -38,19 +37,21 @@ struct RestaurantDashboardView: View {
             
             Spacer()
             
-            Button(action: {
-                createMealAction()
-            }) {
-                Text("Add Meal")
-                    .font(.headline)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color(UIColor.mainGreen))
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
+            if viewModel.isUserOwner() {
+                Button(action: {
+                    createMealAction()
+                }) {
+                    Text("Add Meal")
+                        .font(.headline)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color(UIColor.mainGreen))
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+                .padding(.horizontal)
+                .padding(.bottom, 10)
             }
-            .padding(.horizontal)
-            .padding(.bottom, 10)
         }
     }
 }

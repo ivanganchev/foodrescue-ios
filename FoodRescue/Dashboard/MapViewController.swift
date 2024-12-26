@@ -71,7 +71,7 @@ extension MapViewController: AnnotationInteractionDelegate {
     public func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Annotation]) {
         guard let tappedAnnotationRestaurant = restaurants.filter({ $0.annotationId == annotations.first?.id }).first else { return }
         
-        let restaurantDashboard = RestaurantDashboardController(mealsViewModel: MealsViewModel(), restaurant: tappedAnnotationRestaurant)
+        let restaurantDashboard = RestaurantDashboardController(mealsViewModel: MealsViewModel(userSessionService: userSessionService, restaurant: tappedAnnotationRestaurant))
         restaurantDashboard.modalPresentationStyle = .pageSheet
         
         self.present(restaurantDashboard, animated: true, completion: nil)

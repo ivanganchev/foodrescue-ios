@@ -10,7 +10,15 @@ import UIKit
 class MealsViewModel: ObservableObject {
     @Published var meals: [Meal] = []
     
+    let restaurant: Restaurant
+    
     private let mealsService = MealsService()
+    private let userSessionService: UserSessionService
+    
+    init(userSessionService: UserSessionService, restaurant: Restaurant) {
+        self.userSessionService = userSessionService
+        self.restaurant = restaurant
+    }
     
     func createMeal(name: String, description: String, price: String, image: UIImage, restaurantId: String, completion: @escaping () -> Void) {
         mealsService.createMeal(name: name, description: description, price: price, image: image, restaurantId: restaurantId) { [weak self] result in
@@ -33,5 +41,9 @@ class MealsViewModel: ObservableObject {
                 print("Failed to fetch meals: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func isUserOwner() -> Bool {
+        userSessionService.getUserId() == restaurant.ownerId
     }
 }
