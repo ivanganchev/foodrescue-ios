@@ -12,7 +12,6 @@ struct RestaurantDashboardView: View {
     var restaurantName: String
     @ObservedObject var viewModel: MealsViewModel
     
-//    var createMealAction: (_ name: String, _ description: String, _ price: String, _ image: UIImage) -> Void
     var createMealAction: () -> Void
     
     var body: some View {
@@ -61,9 +60,10 @@ struct MealCell: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
-            Image(meal.image)
-                .resizable()
-                .scaledToFit()
+            AsyncImage(url: URL(string: meal.image)) { result in
+                result.image?.resizable()
+            }
+                .scaledToFill()
                 .frame(width: 60, height: 60)
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color.gray, lineWidth: 1))

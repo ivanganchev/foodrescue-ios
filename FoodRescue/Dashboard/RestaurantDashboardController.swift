@@ -35,6 +35,10 @@ class RestaurantDashboardController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let restaurantId = restaurant.id {
+            mealsViewModel.getMealsByRestaurantId(restaurantId)
+        }
+        
         let restaurantDashboard = UIHostingController(rootView: restaurantDashboardView)
         
         addChild(restaurantDashboard)

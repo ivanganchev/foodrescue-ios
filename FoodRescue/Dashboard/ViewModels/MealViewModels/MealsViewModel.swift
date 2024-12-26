@@ -24,7 +24,14 @@ class MealsViewModel: ObservableObject {
         }
     }
     
-    func getMealsByRestaurantId(_ restaurantId: String, completion: @escaping (Result<[Meal], Error>) -> Void) {
-        
+    func getMealsByRestaurantId(_ restaurantId: String) {
+        mealsService.getMealsByRestaurantId(restaurantId) { [weak self] result in
+            switch result {
+            case .success(let meals):
+                self?.meals = meals
+            case .failure(let error):
+                print("Failed to fetch meals: \(error.localizedDescription)")
+            }
+        }
     }
 }
