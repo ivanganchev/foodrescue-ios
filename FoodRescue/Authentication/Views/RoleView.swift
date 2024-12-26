@@ -78,8 +78,6 @@ class RoleView: UIView {
         self.addSubview(roleDescription)
         self.addSubview(roleIcon)
         
-        let guide = self.safeAreaLayoutGuide
-        
         NSLayoutConstraint.activate([
             roleIcon.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
             roleIcon.centerXAnchor.constraint(equalTo: self.centerXAnchor),

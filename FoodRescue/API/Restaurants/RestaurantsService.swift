@@ -31,17 +31,11 @@ class RestaurantsService: BaseService {
         AF.upload(
             multipartFormData: { multipartFormData in
                 multipartFormData.append(id.data(using: .utf8)!, withName: "id")
-                
                 multipartFormData.append(ownerId.data(using: .utf8)!, withName: "ownerId")
-                
                 multipartFormData.append(name.data(using: .utf8)!, withName: "name")
-                
                 multipartFormData.append(description.data(using: .utf8)!, withName: "description")
-                
                 multipartFormData.append(imageData, withName: "image", fileName: "restaurant.jpg", mimeType: "image/jpeg")
-                
                 multipartFormData.append(String(latitude).data(using: .utf8)!, withName: "latitude")
-                
                 multipartFormData.append(String(longitude).data(using: .utf8)!, withName: "longitude")
             },
             to: url,

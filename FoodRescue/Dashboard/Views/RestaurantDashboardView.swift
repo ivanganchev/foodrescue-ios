@@ -10,8 +10,11 @@ import SwiftUI
 
 struct RestaurantDashboardView: View {
     var restaurantName: String
-    @State var meals: [Meal]
-        
+    @ObservedObject var viewModel: MealsViewModel
+    
+//    var createMealAction: (_ name: String, _ description: String, _ price: String, _ image: UIImage) -> Void
+    var createMealAction: () -> Void
+    
     var body: some View {
         VStack {
             Text(restaurantName)
@@ -20,14 +23,14 @@ struct RestaurantDashboardView: View {
                 .padding(.top, 20)
                 .padding(.bottom, 10)
             
-            if meals.isEmpty {
+            if viewModel.meals.isEmpty {
                 Text("No meals available")
                     .font(.headline)
                     .foregroundColor(.gray)
                     .padding()
             } else {
                 List {
-                    ForEach(meals) { meal in
+                    ForEach(viewModel.meals) { meal in
                         MealCell(meal: meal)
                     }
                 }
@@ -37,23 +40,19 @@ struct RestaurantDashboardView: View {
             Spacer()
             
             Button(action: {
-                addMeal()
+                createMealAction()
             }) {
                 Text("Add Meal")
                     .font(.headline)
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(Color.blue)
+                    .background(Color(UIColor.mainGreen))
                     .foregroundColor(.white)
                     .cornerRadius(10)
             }
             .padding(.horizontal)
             .padding(.bottom, 10)
         }
-    }
-        
-    private func addMeal() {
-        
     }
 }
 

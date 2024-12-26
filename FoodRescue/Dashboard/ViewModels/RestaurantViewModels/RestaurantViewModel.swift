@@ -33,8 +33,4 @@ class RestaurantViewModel {
             }
         }
     }
-    
-    func createRestaurantMeal(name: String, description: String, price: String, image: UIImage, completion: @escaping (Restaurant) -> Void) {
-        
-    }
 }

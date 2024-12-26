@@ -12,8 +12,19 @@ import SwiftUI
 class RestaurantDashboardController: UIViewController {
     let restaurant: Restaurant
     
-    init(restaurant: Restaurant) {
+    let mealsViewModel: MealsViewModel
+    
+    private lazy var restaurantDashboardView: RestaurantDashboardView = {
+        RestaurantDashboardView(
+            restaurantName: restaurant.name,
+            viewModel: mealsViewModel,
+            createMealAction: showCreateMealController
+        )
+    }()
+    
+    init(mealsViewModel: MealsViewModel, restaurant: Restaurant) {
         self.restaurant = restaurant
+        self.mealsViewModel = mealsViewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -24,8 +35,7 @@ class RestaurantDashboardController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let restaurantDashboard = UIHostingController(rootView: RestaurantDashboardView(restaurantName: restaurant.name, meals: [
-            ]))
+        let restaurantDashboard = UIHostingController(rootView: restaurantDashboardView)
         
         addChild(restaurantDashboard)
         view.addSubview(restaurantDashboard.view)
@@ -40,5 +50,18 @@ class RestaurantDashboardController: UIViewController {
         ])
         
         restaurantDashboard.didMove(toParent: self)
+    }
+    
+    private func showCreateMealController() {
+        guard let restaurantId = restaurant.id else {
+            return
+        }
+        
+        let createMealController = CreateMealsViewController(mealsViewModel: mealsViewModel, restaurantId: restaurantId)
+        createMealController.modalPresentationStyle = .fullScreen
+
+        createMealController.onFinishAddingMeal = {}
+        
+        self.present(createMealController, animated: true, completion: nil)
     }
 }

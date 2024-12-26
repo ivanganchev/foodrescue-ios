@@ -43,13 +43,18 @@ class MapViewController: UIViewController {
             let location = gestureRecognizer.location(in: mapView)
             let coordinate = mapView.mapView.mapboxMap.coordinate(for: location)
             
-            let createRestaurantVC = CreateRestaurantViewController(userSessionService: userSessionService, latitude: coordinate.latitude, longitude: coordinate.longitude, restaurantViewModel: restaurantViewModel)
+            let createRestaurantVC = CreateRestaurantViewController(userSessionService: userSessionService,
+                                                                    latitude: coordinate.latitude,
+                                                                    longitude: coordinate.longitude,
+                                                                    restaurantViewModel: restaurantViewModel)
             createRestaurantVC.modalPresentationStyle = .fullScreen
             
             createRestaurantVC.onFinishAddingRestaurant = { [weak self] restaurant in
                 var mutableRestaurant = restaurant
                 self?.mapView.createRestaurantAnnotation(at: CLLocationCoordinate2D(latitude: coordinate.latitude,
-                                                                                    longitude: coordinate.longitude), name: restaurant.name, imageUrl: restaurant.images.first ?? "") { annotationId in
+                                                                                    longitude: coordinate.longitude),
+                                                         name: restaurant.name,
+                                                         imageUrl: restaurant.images.first ?? "") { annotationId in
                     mutableRestaurant.annotationId = annotationId
                     self?.restaurants.append(mutableRestaurant)
                 }
@@ -64,16 +69,9 @@ class MapViewController: UIViewController {
 
 extension MapViewController: AnnotationInteractionDelegate {
     public func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Annotation]) {
-        
-        
-//        let createMealController = CreateMealsViewController(restaurantViewModel: restaurantViewModel)
-//        createMealController.modalPresentationStyle = .fullScreen
-//        
-//        createMealController.onFinishAddingMeal = { [weak self] meal in
-//        }
         guard let tappedAnnotationRestaurant = restaurants.filter({ $0.annotationId == annotations.first?.id }).first else { return }
         
-        let restaurantDashboard = RestaurantDashboardController(restaurant: tappedAnnotationRestaurant)
+        let restaurantDashboard = RestaurantDashboardController(mealsViewModel: MealsViewModel(), restaurant: tappedAnnotationRestaurant)
         restaurantDashboard.modalPresentationStyle = .pageSheet
         
         self.present(restaurantDashboard, animated: true, completion: nil)

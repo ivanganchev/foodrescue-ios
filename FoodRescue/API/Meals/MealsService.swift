@@ -18,7 +18,7 @@ class MealsService: BaseService {
         ]
         
         guard let imageData = image.jpegData(compressionQuality: 0.8) else {
-            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to data"])))
+            print(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to convert image to data"]))
             return
         }
         
@@ -37,6 +37,29 @@ class MealsService: BaseService {
             case .success(let data):
                 do {
                     let meal = try JSONDecoder().decode(Meal.self, from: data)
+                    completion(.success(meal))
+                } catch {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getMealsByRestaurantId(_ id: String, completion: @escaping (Result<[Meal], Error>) -> Void) {
+        guard let token = jwtAuthenticator.keychain.get("token") else { return }
+        
+        let url = "https://foodrescue-api.onrender.com/meals/by-restaurant/\(id)"
+        let headers: HTTPHeaders = [
+            "Authorization": "\(token)"
+        ]
+        
+        AF.request(url, headers: headers).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let meal = try JSONDecoder().decode([Meal].self, from: data)
                     completion(.success(meal))
                 } catch {
                     completion(.failure(error))

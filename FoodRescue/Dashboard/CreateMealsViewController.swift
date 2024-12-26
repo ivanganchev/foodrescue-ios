@@ -10,13 +10,15 @@ import UIKit
 import SwiftUI
 
 class CreateMealsViewController: UIViewController {
-    private let restaurantViewModel: RestaurantViewModel
+    private let mealsViewModel: MealsViewModel
     let successCheckmarkView = SuccessCheckmarkView(message: "Created successfully!")
+    let restaurantId: String
     
-    var onFinishAddingMeal: ((Restaurant) -> Void)?
+    var onFinishAddingMeal: (() -> Void)?
     
-    init(restaurantViewModel: RestaurantViewModel) {
-        self.restaurantViewModel = restaurantViewModel
+    init(mealsViewModel: MealsViewModel, restaurantId: String) {
+        self.mealsViewModel = mealsViewModel
+        self.restaurantId = restaurantId
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -56,9 +58,9 @@ class CreateMealsViewController: UIViewController {
     }
     
     private func finishAddMeal(name: String, description: String, price: String, image: UIImage) {
-        restaurantViewModel.createRestaurantMeal(name: name, description: description, price: price, image: image) { [weak self] restaurant in
+        mealsViewModel.createMeal(name: name, description: description, price: price, image: image, restaurantId: restaurantId) { [weak self] in
             self?.successCheckmarkView.show {
-                self?.onFinishAddingMeal?(restaurant)
+                self?.onFinishAddingMeal?()
                 self?.dismiss(animated: true)
             }
         }
