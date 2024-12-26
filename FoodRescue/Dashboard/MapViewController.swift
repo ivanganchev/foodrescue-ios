@@ -12,6 +12,7 @@ class MapViewController: UIViewController {
     private var mapView = CustomMapView(frame: .zero)
     private let restaurantViewModel = RestaurantViewModel()
     private var restaurants: [Restaurant] = []
+    private let userSessionService = UserSessionService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,7 @@ class MapViewController: UIViewController {
             let location = gestureRecognizer.location(in: mapView)
             let coordinate = mapView.mapView.mapboxMap.coordinate(for: location)
             
-            let createRestaurantVC = CreateRestaurantViewController(latitude: coordinate.latitude, longitude: coordinate.longitude, restaurantViewModel: restaurantViewModel)
+            let createRestaurantVC = CreateRestaurantViewController(userSessionService: userSessionService, latitude: coordinate.latitude, longitude: coordinate.longitude, restaurantViewModel: restaurantViewModel)
             createRestaurantVC.modalPresentationStyle = .fullScreen
             
             createRestaurantVC.onFinishAddingRestaurant = { [weak self] restaurant in

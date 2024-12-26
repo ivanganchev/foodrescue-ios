@@ -6,3 +6,18 @@
 //
 
 import Foundation
+import RealmSwift
+
+class UserSessionService {
+    func getUserId() -> String {
+        do {
+            let realm = try Realm()
+            let user = realm.objects(UserDB.self).first
+            
+            return user?.id ?? ""
+        } catch {
+            print(error)
+            return ""
+        }
+    }
+}

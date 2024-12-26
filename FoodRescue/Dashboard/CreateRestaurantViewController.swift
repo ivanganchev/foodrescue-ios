@@ -11,13 +11,15 @@ import SwiftUI
 class CreateRestaurantViewController: UIViewController {
     private let restaurantViewModel: RestaurantViewModel
     let successCheckmarkView = SuccessCheckmarkView(message: "Created successfully!")
+    private let userSessionService: UserSessionService
     
     let restaurantLatitude: Double
     let restaurantLongitude: Double
     
     var onFinishAddingRestaurant: ((Restaurant) -> Void)?
     
-    init(latitude: Double, longitude: Double, restaurantViewModel: RestaurantViewModel) {
+    init(userSessionService: UserSessionService, latitude: Double, longitude: Double, restaurantViewModel: RestaurantViewModel) {
+        self.userSessionService = userSessionService
         self.restaurantLatitude = latitude
         self.restaurantLongitude = longitude
         self.restaurantViewModel = restaurantViewModel
@@ -60,7 +62,7 @@ class CreateRestaurantViewController: UIViewController {
     }
     
     private func finishAddRestaurant(name: String, description: String, image: UIImage) {
-        restaurantViewModel.createRestaurant(ownerId: "", name: name, description: description, image: image, latitude: restaurantLatitude, longitude: restaurantLongitude) { [weak self] restaurant in
+        restaurantViewModel.createRestaurant(ownerId: userSessionService.getUserId(), name: name, description: description, image: image, latitude: restaurantLatitude, longitude: restaurantLongitude) { [weak self] restaurant in
             self?.successCheckmarkView.show {
                 self?.onFinishAddingRestaurant?(restaurant)
                 self?.dismiss(animated: true)

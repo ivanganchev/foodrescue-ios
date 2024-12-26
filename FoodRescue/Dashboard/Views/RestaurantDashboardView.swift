@@ -52,9 +52,9 @@ struct RestaurantDashboardView: View {
         }
     }
         
-        private func addMeal() {
-    //        meals.append(newMeal)
-        }
+    private func addMeal() {
+        
+    }
 }
 
 struct MealCell: View {

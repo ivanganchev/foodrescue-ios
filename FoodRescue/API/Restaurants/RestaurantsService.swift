@@ -34,7 +34,7 @@ class RestaurantsService {
             multipartFormData: { multipartFormData in
                 multipartFormData.append(id.data(using: .utf8)!, withName: "id")
                 
-                multipartFormData.append(id.data(using: .utf8)!, withName: "ownerId")
+                multipartFormData.append(ownerId.data(using: .utf8)!, withName: "ownerId")
                 
                 multipartFormData.append(name.data(using: .utf8)!, withName: "name")
                 
