@@ -7,18 +7,13 @@
 
 import Foundation
 
-struct Meal: Decodable {
+struct Meal: Decodable, Identifiable {
+    var id: String
     let name: String
     let description: String
     let image: String
     let price: String
     let restaurantId: String
-}
-
-extension Meal: Identifiable {
-    var id: String {
-        UUID().uuidString
-    }
 }
     
 

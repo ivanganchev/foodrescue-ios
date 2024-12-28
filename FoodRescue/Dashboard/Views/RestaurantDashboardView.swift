@@ -12,6 +12,7 @@ struct RestaurantDashboardView: View {
     @ObservedObject var viewModel: MealsViewModel
     
     var createMealAction: () -> Void
+    let deleteMealAction: (IndexSet) -> Void
     
     var body: some View {
         VStack {
@@ -31,6 +32,7 @@ struct RestaurantDashboardView: View {
                     ForEach(viewModel.meals) { meal in
                         MealCell(meal: meal)
                     }
+                    .onDelete(perform: deleteMealAction)
                 }
                 .listStyle(PlainListStyle())
             }

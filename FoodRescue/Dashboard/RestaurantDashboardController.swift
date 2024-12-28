@@ -15,7 +15,8 @@ class RestaurantDashboardController: UIViewController {
     private lazy var restaurantDashboardView: RestaurantDashboardView = {
         RestaurantDashboardView(
             viewModel: mealsViewModel,
-            createMealAction: showCreateMealController
+            createMealAction: showCreateMealController,
+            deleteMealAction: deleteMeal
         )
     }()
     
@@ -63,5 +64,9 @@ class RestaurantDashboardController: UIViewController {
         createMealController.onFinishAddingMeal = {}
         
         self.present(createMealController, animated: true, completion: nil)
+    }
+    
+    private func deleteMeal(at indexSet: IndexSet) {
+        mealsViewModel.deleteMealById(at: indexSet)
     }
 }

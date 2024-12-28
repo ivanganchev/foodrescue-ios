@@ -24,6 +24,7 @@ class MealsService: BaseService {
         
         AF.upload(
             multipartFormData: { multipartFormData in
+                multipartFormData.append(UUID().uuidString.lowercased().data(using: .utf8)!, withName: "id")
                 multipartFormData.append(name.data(using: .utf8)!, withName: "name")
                 multipartFormData.append(description.data(using: .utf8)!, withName: "description")
                 multipartFormData.append(price.data(using: .utf8)!, withName: "price")
@@ -46,6 +47,28 @@ class MealsService: BaseService {
             }
         }
     }
+    
+    func deleteMealById(_ id: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let token = jwtAuthenticator.keychain.get("token") else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Token not found"])))
+            return
+        }
+        
+        let url = "https://foodrescue-api.onrender.com/meals/delete/\(id)"
+        let headers: HTTPHeaders = [
+            "Authorization": "\(token)"
+        ]
+        
+        AF.request(url, method: .delete, headers: headers).responseData { response in
+            switch response.result {
+            case .success(let value):
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+
     
     func getMealsByRestaurantId(_ id: String, completion: @escaping (Result<[Meal], Error>) -> Void) {
         guard let token = jwtAuthenticator.keychain.get("token") else { return }
