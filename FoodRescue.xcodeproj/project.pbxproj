@@ -39,6 +39,8 @@
 		C17A0ADC2C5E48B4002576C4 /* MapInteractionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A0ADB2C5E48B4002576C4 /* MapInteractionButton.swift */; };
 		C17A0ADF2C5E4922002576C4 /* CameraLocationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A0ADE2C5E4922002576C4 /* CameraLocationState.swift */; };
 		C17A0AE52C5F8688002576C4 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A0AE42C5F8688002576C4 /* UIImageExtension.swift */; };
+		C1B2A6A32D217E2500F7F45C /* RealTimeUpdatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B2A6A22D217E2500F7F45C /* RealTimeUpdatesManager.swift */; };
+		C1B2A6A52D21897D00F7F45C /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = C1B2A6A42D21897D00F7F45C /* SocketIO */; };
 		C1C3A2C32B3B267A009014F7 /* JWTAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */; };
 		C1C3A2C62B3B2751009014F7 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C52B3B2751009014F7 /* JWTDecode */; };
 		C1C3A2C92B3B2FE6009014F7 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C82B3B2FE6009014F7 /* KeychainSwift */; };
@@ -107,6 +109,7 @@
 		C17A0ADB2C5E48B4002576C4 /* MapInteractionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractionButton.swift; sourceTree = "<group>"; };
 		C17A0ADE2C5E4922002576C4 /* CameraLocationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLocationState.swift; sourceTree = "<group>"; };
 		C17A0AE42C5F8688002576C4 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		C1B2A6A22D217E2500F7F45C /* RealTimeUpdatesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeUpdatesManager.swift; sourceTree = "<group>"; };
 		C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTAuthentication.swift; sourceTree = "<group>"; };
 		C1C3A2CA2B3B3105009014F7 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		C1C3A2CF2B45AE8E009014F7 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 				C1C3A2C92B3B2FE6009014F7 /* KeychainSwift in Frameworks */,
 				C1C3A2C62B3B2751009014F7 /* JWTDecode in Frameworks */,
 				C1DBD2252C56724B004A1FD4 /* MapboxMaps in Frameworks */,
+				C1B2A6A52D21897D00F7F45C /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,6 +263,7 @@
 				C16D39F82CFC7FBA0087F3CB /* Restaurants */,
 				C1030AF42BE522C50015820C /* Authentication */,
 				C16BFFEA2D1D8E8600B4CED6 /* BaseService.swift */,
+				C1B2A6A22D217E2500F7F45C /* RealTimeUpdatesManager.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 				C1030AF82BE524740015820C /* Alamofire */,
 				C1030B022BE549B90015820C /* RealmSwift */,
 				C1DBD2242C56724B004A1FD4 /* MapboxMaps */,
+				C1B2A6A42D21897D00F7F45C /* SocketIO */,
 			);
 			productName = FoodRescue;
 			productReference = C1E35E112B374EC6006E4AE4 /* FoodRescue.app */;
@@ -428,6 +434,7 @@
 				C1030AF72BE524740015820C /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C1030AFF2BE549B90015820C /* XCRemoteSwiftPackageReference "realm-swift" */,
 				C1DBD2232C56724A004A1FD4 /* XCRemoteSwiftPackageReference "mapbox-maps-ios" */,
+				C1B2A6A12D21551200F7F45C /* XCRemoteSwiftPackageReference "socket" */,
 			);
 			productRefGroup = C1E35E122B374EC6006E4AE4 /* Products */;
 			projectDirPath = "";
@@ -488,6 +495,7 @@
 				C1C3A2DA2B45B166009014F7 /* SignUpView.swift in Sources */,
 				C1DBD2282C5673C3004A1FD4 /* CustomMapView.swift in Sources */,
 				C131ED782D0F24D900D34C5D /* Meal.swift in Sources */,
+				C1B2A6A32D217E2500F7F45C /* RealTimeUpdatesManager.swift in Sources */,
 				C1797CBA2BF104FF000D6934 /* RealmMigrator.swift in Sources */,
 				C16D39FA2CFC80B30087F3CB /* RestaurantsService.swift in Sources */,
 				C12482942D1B1D6C00BDEF81 /* RestaurantDashboardController.swift in Sources */,
@@ -725,6 +733,14 @@
 				kind = branch;
 			};
 		};
+		C1B2A6A12D21551200F7F45C /* XCRemoteSwiftPackageReference "socket" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/socketio/socket.io-client-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		C1C3A2C42B3B2751009014F7 /* XCRemoteSwiftPackageReference "JWTDecode" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/auth0/JWTDecode.swift";
@@ -761,6 +777,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C1030AFF2BE549B90015820C /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		C1B2A6A42D21897D00F7F45C /* SocketIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1B2A6A12D21551200F7F45C /* XCRemoteSwiftPackageReference "socket" */;
+			productName = SocketIO;
 		};
 		C1C3A2C52B3B2751009014F7 /* JWTDecode */ = {
 			isa = XCSwiftPackageProductDependency;

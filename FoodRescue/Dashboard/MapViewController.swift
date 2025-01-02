@@ -11,8 +11,8 @@ import MapboxMaps
 class MapViewController: UIViewController {
     private var mapView = CustomMapView(frame: .zero)
     private let restaurantViewModel = RestaurantViewModel()
-    private var restaurants: [Restaurant] = []
     private let userSessionService = UserSessionService()
+    private let realTimeUpdateManager = RealTimeUpdatesManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ class MapViewController: UIViewController {
                                                          name: restaurant.name,
                                                          imageUrl: restaurant.images.first ?? "") { annotationId in
                     restaurant.annotationId = annotationId
-                    self?.restaurants.append(restaurant)
+                    self?.restaurantViewModel.restaurants.append(restaurant)
                 }
             }
         }
@@ -56,7 +56,7 @@ class MapViewController: UIViewController {
                                                          name: restaurant.name,
                                                          imageUrl: restaurant.images.first ?? "") { annotationId in
                     mutableRestaurant.annotationId = annotationId
-                    self?.restaurants.append(mutableRestaurant)
+                    self?.restaurantViewModel.restaurants.append(mutableRestaurant)
                 }
             }
             
@@ -69,7 +69,7 @@ class MapViewController: UIViewController {
 
 extension MapViewController: AnnotationInteractionDelegate {
     public func annotationManager(_ manager: AnnotationManager, didDetectTappedAnnotations annotations: [Annotation]) {
-        guard let tappedAnnotationRestaurant = restaurants.filter({ $0.annotationId == annotations.first?.id }).first else { return }
+        guard let tappedAnnotationRestaurant = self.restaurantViewModel.restaurants.filter({ $0.annotationId == annotations.first?.id }).first else { return }
         
         let restaurantDashboard = RestaurantDashboardController(mealsViewModel: MealsViewModel(userSessionService: userSessionService, restaurant: tappedAnnotationRestaurant))
         restaurantDashboard.modalPresentationStyle = .pageSheet

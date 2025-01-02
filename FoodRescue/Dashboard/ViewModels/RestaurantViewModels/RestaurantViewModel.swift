@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class RestaurantViewModel {
+    var restaurants: [Restaurant] = []
     let restaurantService = RestaurantsService()
     
     func createRestaurant(ownerId: String, name: String, description: String, image: UIImage, latitude: Double, longitude: Double, completion: @escaping (Restaurant) -> Void) {
