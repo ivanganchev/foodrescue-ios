@@ -12,7 +12,6 @@ class MapViewController: UIViewController {
     private var mapView = CustomMapView(frame: .zero)
     private let restaurantViewModel = RestaurantViewModel()
     private let userSessionService = UserSessionService()
-    private let realTimeUpdateManager = RealTimeUpdatesManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,20 +21,29 @@ class MapViewController: UIViewController {
         mapView.pointAnnotationManager.delegate = self
         
         restaurantViewModel.getAllRestaurants { [weak self] restaurants in
-            for var restaurant in restaurants {
-                self?.mapView.createRestaurantAnnotation(at: CLLocationCoordinate2D(latitude: restaurant.latitude,
-                                                                                    longitude: restaurant.longitude),
-                                                         name: restaurant.name,
-                                                         imageUrl: restaurant.images.first ?? "") { annotationId in
-                    restaurant.annotationId = annotationId
-                    self?.restaurantViewModel.restaurants.append(restaurant)
-                }
+            for restaurant in restaurants {
+                self?.createRestaurantAnnotation(from: restaurant)
             }
+        }
+        
+        restaurantViewModel.onRestaurantAdded = { [weak self] restaurant in
+            self?.createRestaurantAnnotation(from: restaurant)
         }
     }
     
     override func loadView() {
         self.view = mapView
+    }
+    
+    private func createRestaurantAnnotation(from restaurant: Restaurant) {
+        var mutableRestaurant = restaurant
+        self.mapView.createRestaurantAnnotation(at: CLLocationCoordinate2D(latitude: mutableRestaurant.latitude,
+                                                                            longitude: mutableRestaurant.longitude),
+                                                 name: mutableRestaurant.name,
+                                                 imageUrl: mutableRestaurant.images.first ?? "") { annotationId in
+            mutableRestaurant.annotationId = annotationId
+            self.restaurantViewModel.restaurants.append(mutableRestaurant)
+        }
     }
     
     @objc func handleMapTap(_ gestureRecognizer: UITapGestureRecognizer) {
@@ -50,14 +58,7 @@ class MapViewController: UIViewController {
             createRestaurantVC.modalPresentationStyle = .fullScreen
             
             createRestaurantVC.onFinishAddingRestaurant = { [weak self] restaurant in
-                var mutableRestaurant = restaurant
-                self?.mapView.createRestaurantAnnotation(at: CLLocationCoordinate2D(latitude: coordinate.latitude,
-                                                                                    longitude: coordinate.longitude),
-                                                         name: restaurant.name,
-                                                         imageUrl: restaurant.images.first ?? "") { annotationId in
-                    mutableRestaurant.annotationId = annotationId
-                    self?.restaurantViewModel.restaurants.append(mutableRestaurant)
-                }
+                self?.createRestaurantAnnotation(from: restaurant)
             }
             
             self.present(createRestaurantVC, animated: true) { [weak self] in

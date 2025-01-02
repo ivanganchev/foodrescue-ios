@@ -11,6 +11,20 @@ import UIKit
 class RestaurantViewModel {
     var restaurants: [Restaurant] = []
     let restaurantService = RestaurantsService()
+    private let realTimeUpdatesManager = RealTimeUpdatesManager.shared
+    
+    var onRestaurantAdded: ((Restaurant) -> Void)?
+    
+    init() {
+        realTimeUpdatesManager.subscribe(to: .newRestaurant) { [weak self] (newRestaurant: Restaurant) in
+            DispatchQueue.main.async {
+                if let onRestaurantAdded = self?.onRestaurantAdded {
+                    self?.restaurants.append(newRestaurant)
+                    onRestaurantAdded(newRestaurant)
+                }
+            }
+        }
+    }
     
     func createRestaurant(ownerId: String, name: String, description: String, image: UIImage, latitude: Double, longitude: Double, completion: @escaping (Restaurant) -> Void) {
         restaurantService.createRestaurant(ownerId: ownerId, name: name, description: description, image: image, latitude: latitude , longitude: longitude, completion: { result in

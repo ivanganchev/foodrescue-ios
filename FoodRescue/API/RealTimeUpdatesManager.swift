@@ -15,32 +15,30 @@ enum RealTimeEvent: String {
 }
 
 class RealTimeUpdatesManager {
+    static let shared = RealTimeUpdatesManager()
+    
     private var manager: SocketManager
     private var socket: SocketIOClient
     
-    init() {
+    private init() {
         manager = SocketManager(socketURL: URL(string: "https://foodrescue-api.onrender.com")!, config: [.log(true), .compress])
         socket = manager.defaultSocket
-        
-        socket.on(RealTimeEvent.newRestaurant.rawValue) { dataArray, ack in
-            if let restaurant = dataArray[0] as? [String: Any] {
-                print("New restaurant created: \(restaurant)")
-            }
-        }
-        
-        socket.on(RealTimeEvent.newMeal.rawValue) { dataArray, ack in
-            if let meal = dataArray[0] as? [String: Any] {
-                print("New meal created: \(meal)")
-            }
-        }
-
-        socket.on(RealTimeEvent.deletedMeal.rawValue) { dataArray, ack in
-            if let mealId = dataArray[0] as? String {
-                print("Meal deleted: \(mealId)")
-            }
-        }
-        
         socket.connect()
+    }
+    
+    func subscribe<T: Decodable>(to event: RealTimeEvent, completion: @escaping (T) -> Void) {
+        socket.on(event.rawValue) { dataArray, ack in
+            do {
+                guard let data = try? JSONSerialization.data(withJSONObject: dataArray[0], options: []) else {
+                    print("Failed to serialize dataArray for event: \(event.rawValue)")
+                    return
+                }
+                let decodedData = try JSONDecoder().decode(T.self, from: data)
+                completion(decodedData)
+            } catch {
+                print("Failed to decode event \(event.rawValue): \(error)")
+            }
+        }
     }
     
     func disconnect() {
