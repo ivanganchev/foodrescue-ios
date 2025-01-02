@@ -11,16 +11,14 @@ import SocketIO
 enum RealTimeEvent: String {
     case newRestaurant = "newRestaurant"
     case newMeal = "newMeal"
-    case deletedMeal = "deletedMeal"
+    case deleteMeal = "deleteMeal"
 }
 
 class RealTimeUpdatesManager {
-    static let shared = RealTimeUpdatesManager()
-    
     private var manager: SocketManager
     private var socket: SocketIOClient
     
-    private init() {
+    init() {
         manager = SocketManager(socketURL: URL(string: "https://foodrescue-api.onrender.com")!, config: [.log(true), .compress])
         socket = manager.defaultSocket
         socket.connect()

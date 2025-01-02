@@ -15,9 +15,27 @@ class MealsViewModel: ObservableObject {
     private let mealsService = MealsService()
     private let userSessionService: UserSessionService
     
+    private let realTimeUpdatesManager = RealTimeUpdatesManager()
+    
     init(userSessionService: UserSessionService, restaurant: Restaurant) {
         self.userSessionService = userSessionService
         self.restaurant = restaurant
+        
+        realTimeUpdatesManager.subscribe(to: .newMeal) { [weak self] (newMeal: Meal) in
+            DispatchQueue.main.async {
+                self?.meals.append(newMeal)
+            }
+        }
+        
+        realTimeUpdatesManager.subscribe(to: .deleteMeal) { [weak self] (deletedMeal: Meal) in
+            DispatchQueue.main.async {
+                self?.meals.removeAll { $0.id == deletedMeal.id }
+            }
+        }
+    }
+    
+    deinit {
+        realTimeUpdatesManager.disconnect()
     }
     
     func createMeal(name: String, description: String, price: String, image: UIImage, restaurantId: String, completion: @escaping () -> Void) {

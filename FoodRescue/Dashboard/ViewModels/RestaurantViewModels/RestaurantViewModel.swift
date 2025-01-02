@@ -11,7 +11,7 @@ import UIKit
 class RestaurantViewModel {
     var restaurants: [Restaurant] = []
     let restaurantService = RestaurantsService()
-    private let realTimeUpdatesManager = RealTimeUpdatesManager.shared
+    private let realTimeUpdatesManager = RealTimeUpdatesManager()
     
     var onRestaurantAdded: ((Restaurant) -> Void)?
     
@@ -24,6 +24,10 @@ class RestaurantViewModel {
                 }
             }
         }
+    }
+    
+    deinit {
+        realTimeUpdatesManager.disconnect()
     }
     
     func createRestaurant(ownerId: String, name: String, description: String, image: UIImage, latitude: Double, longitude: Double, completion: @escaping (Restaurant) -> Void) {
