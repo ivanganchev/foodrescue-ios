@@ -61,6 +61,9 @@
 		C1E35E1E2B374EC7006E4AE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C1E35E1D2B374EC7006E4AE4 /* Assets.xcassets */; };
 		C1F1AA5C2C15AD7C00D10982 /* RoleSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F1AA5B2C15AD7C00D10982 /* RoleSelectionViewModel.swift */; };
 		C1F1AA5E2C15ADE500D10982 /* RoleSelectionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F1AA5D2C15ADE500D10982 /* RoleSelectionService.swift */; };
+		C1F20CEC2D2B16AD00B821F9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F20CEB2D2B16AD00B821F9 /* ProfileViewController.swift */; };
+		C1F20CEE2D2B16CF00B821F9 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F20CED2D2B16CF00B821F9 /* ProfileView.swift */; };
+		C1F20CF12D2B2DD700B821F9 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F20CF02D2B2DD700B821F9 /* ProfileViewModel.swift */; };
 		C1FF37FB2C67B12B00AE1877 /* CreateRestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF37FA2C67B12B00AE1877 /* CreateRestaurantViewController.swift */; };
 		C1FF37FD2C67B16000AE1877 /* CreateRestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1FF37FC2C67B16000AE1877 /* CreateRestaurantView.swift */; };
 /* End PBXBuildFile section */
@@ -129,6 +132,9 @@
 		C1E35E222B374EC7006E4AE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C1F1AA5B2C15AD7C00D10982 /* RoleSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionViewModel.swift; sourceTree = "<group>"; };
 		C1F1AA5D2C15ADE500D10982 /* RoleSelectionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleSelectionService.swift; sourceTree = "<group>"; };
+		C1F20CEB2D2B16AD00B821F9 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C1F20CED2D2B16CF00B821F9 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C1F20CF02D2B2DD700B821F9 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		C1FF37FA2C67B12B00AE1877 /* CreateRestaurantViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRestaurantViewController.swift; sourceTree = "<group>"; };
 		C1FF37FC2C67B16000AE1877 /* CreateRestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRestaurantView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -226,6 +232,7 @@
 		C16D39FE2CFCAFE70087F3CB /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				C1F20CEF2D2B2DC400B821F9 /* ProfileViewModels */,
 				C16BFFE22D1D8B6200B4CED6 /* MealViewModels */,
 				C16D39FF2CFCAFF20087F3CB /* RestaurantViewModels */,
 			);
@@ -298,6 +305,7 @@
 				C131ED792D0F260500D34C5D /* CreateMealView.swift */,
 				C131ED7D2D0F264300D34C5D /* CreateContentView.swift */,
 				C12482952D1B201F00BDEF81 /* RestaurantDashboardView.swift */,
+				C1F20CED2D2B16CF00B821F9 /* ProfileView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -314,6 +322,7 @@
 				C1FF37FA2C67B12B00AE1877 /* CreateRestaurantViewController.swift */,
 				C12482912D1B099300BDEF81 /* CreateMealsViewController.swift */,
 				C12482932D1B1D6C00BDEF81 /* RestaurantDashboardController.swift */,
+				C1F20CEB2D2B16AD00B821F9 /* ProfileViewController.swift */,
 			);
 			path = Dashboard;
 			sourceTree = "<group>";
@@ -373,6 +382,14 @@
 				C17917162C02122F0005E1B1 /* RoleSelectionViewController.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		C1F20CEF2D2B2DC400B821F9 /* ProfileViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				C1F20CF02D2B2DD700B821F9 /* ProfileViewModel.swift */,
+			);
+			path = ProfileViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -491,8 +508,11 @@
 				C17917152C02121F0005E1B1 /* RoleView.swift in Sources */,
 				C12C4A912B49884400E0B1D2 /* UITextFieldExtension.swift in Sources */,
 				C12C4A932B49887400E0B1D2 /* UIColorExtension.swift in Sources */,
+				C1F20CF12D2B2DD700B821F9 /* ProfileViewModel.swift in Sources */,
+				C1F20CEC2D2B16AD00B821F9 /* ProfileViewController.swift in Sources */,
 				C17A0ADC2C5E48B4002576C4 /* MapInteractionButton.swift in Sources */,
 				C1C3A2DA2B45B166009014F7 /* SignUpView.swift in Sources */,
+				C1F20CEE2D2B16CF00B821F9 /* ProfileView.swift in Sources */,
 				C1DBD2282C5673C3004A1FD4 /* CustomMapView.swift in Sources */,
 				C131ED782D0F24D900D34C5D /* Meal.swift in Sources */,
 				C1B2A6A32D217E2500F7F45C /* RealTimeUpdatesManager.swift in Sources */,

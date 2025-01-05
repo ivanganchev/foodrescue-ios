@@ -39,8 +39,7 @@ class LogInViewController: AuthenticationViewController {
     
     override func handleAuthentication(with result: Result<Void, Error>) {
         switch result {
-            //TODO: make optional userId
-        case .success(let userId):
+        case .success(_):
             print("Successful Login!")
             
             let dashboardViewController = TabBarController()

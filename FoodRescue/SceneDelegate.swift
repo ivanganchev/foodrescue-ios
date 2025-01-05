@@ -25,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 let dashboardViewController = TabBarController()
                 self.setRootViewController(dashboardViewController, for: scene as! UIWindowScene)
             case .failure(_):
-                self.showLogin()
+                self.logout()
             }
         })
     }

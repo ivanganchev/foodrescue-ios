@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class UserSessionService {
+class UserSessionService: BaseService {
     func getUserId() -> String {
         do {
             let realm = try Realm()
@@ -19,5 +19,10 @@ class UserSessionService {
             print(error)
             return ""
         }
+    }
+    
+    func logout() {
+        Realm.reset()
+        jwtAuthenticator.deleteJWToken()
     }
 }
