@@ -14,6 +14,9 @@ struct Meal: Decodable, Identifiable {
     let image: String
     let price: String
     let restaurantId: String
+    let reservationExpiresAt: String?
+    let reservedBy: String?
+    let reserved: Bool
 }
     
 

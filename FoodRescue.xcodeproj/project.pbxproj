@@ -25,6 +25,8 @@
 		C131ED782D0F24D900D34C5D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C131ED772D0F24D900D34C5D /* Meal.swift */; };
 		C131ED7A2D0F260500D34C5D /* CreateMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C131ED792D0F260500D34C5D /* CreateMealView.swift */; };
 		C131ED7E2D0F264300D34C5D /* CreateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C131ED7D2D0F264300D34C5D /* CreateContentView.swift */; };
+		C1385B402D38546D00FD1EBA /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1385B3F2D38546D00FD1EBA /* DateConverter.swift */; };
+		C1385B422D3856A600FD1EBA /* TimeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1385B412D3856A600FD1EBA /* TimeComponents.swift */; };
 		C16BFFE42D1D8B7900B4CED6 /* MealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16BFFE32D1D8B7900B4CED6 /* MealsViewModel.swift */; };
 		C16BFFE92D1D8BC000B4CED6 /* MealsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16BFFE82D1D8BC000B4CED6 /* MealsService.swift */; };
 		C16BFFEB2D1D8E8600B4CED6 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16BFFEA2D1D8E8600B4CED6 /* BaseService.swift */; };
@@ -41,6 +43,8 @@
 		C17A0AE52C5F8688002576C4 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17A0AE42C5F8688002576C4 /* UIImageExtension.swift */; };
 		C1B2A6A32D217E2500F7F45C /* RealTimeUpdatesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B2A6A22D217E2500F7F45C /* RealTimeUpdatesManager.swift */; };
 		C1B2A6A52D21897D00F7F45C /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = C1B2A6A42D21897D00F7F45C /* SocketIO */; };
+		C1C2069C2D34305F00E6FBAF /* ReservationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2069B2D34305F00E6FBAF /* ReservationResponse.swift */; };
+		C1C2069F2D35BD9F00E6FBAF /* MealDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C2069E2D35BD9F00E6FBAF /* MealDB.swift */; };
 		C1C3A2C32B3B267A009014F7 /* JWTAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */; };
 		C1C3A2C62B3B2751009014F7 /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C52B3B2751009014F7 /* JWTDecode */; };
 		C1C3A2C92B3B2FE6009014F7 /* KeychainSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C1C3A2C82B3B2FE6009014F7 /* KeychainSwift */; };
@@ -98,6 +102,8 @@
 		C131ED772D0F24D900D34C5D /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
 		C131ED792D0F260500D34C5D /* CreateMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMealView.swift; sourceTree = "<group>"; };
 		C131ED7D2D0F264300D34C5D /* CreateContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContentView.swift; sourceTree = "<group>"; };
+		C1385B3F2D38546D00FD1EBA /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
+		C1385B412D3856A600FD1EBA /* TimeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeComponents.swift; sourceTree = "<group>"; };
 		C16BFFE32D1D8B7900B4CED6 /* MealsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewModel.swift; sourceTree = "<group>"; };
 		C16BFFE82D1D8BC000B4CED6 /* MealsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsService.swift; sourceTree = "<group>"; };
 		C16BFFEA2D1D8E8600B4CED6 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
@@ -113,6 +119,8 @@
 		C17A0ADE2C5E4922002576C4 /* CameraLocationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraLocationState.swift; sourceTree = "<group>"; };
 		C17A0AE42C5F8688002576C4 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		C1B2A6A22D217E2500F7F45C /* RealTimeUpdatesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimeUpdatesManager.swift; sourceTree = "<group>"; };
+		C1C2069B2D34305F00E6FBAF /* ReservationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationResponse.swift; sourceTree = "<group>"; };
+		C1C2069E2D35BD9F00E6FBAF /* MealDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDB.swift; sourceTree = "<group>"; };
 		C1C3A2C22B3B267A009014F7 /* JWTAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JWTAuthentication.swift; sourceTree = "<group>"; };
 		C1C3A2CA2B3B3105009014F7 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
 		C1C3A2CF2B45AE8E009014F7 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -223,8 +231,11 @@
 		C16D39FB2CFCAC340087F3CB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C1C2069D2D35BD9400E6FBAF /* Realm */,
 				C16D39FC2CFCAE4F0087F3CB /* Restaurant.swift */,
 				C131ED772D0F24D900D34C5D /* Meal.swift */,
+				C1C2069B2D34305F00E6FBAF /* ReservationResponse.swift */,
+				C1385B412D3856A600FD1EBA /* TimeComponents.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -259,8 +270,17 @@
 			isa = PBXGroup;
 			children = (
 				C17A0ADE2C5E4922002576C4 /* CameraLocationState.swift */,
+				C1385B3F2D38546D00FD1EBA /* DateConverter.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		C1C2069D2D35BD9400E6FBAF /* Realm */ = {
+			isa = PBXGroup;
+			children = (
+				C1C2069E2D35BD9F00E6FBAF /* MealDB.swift */,
+			);
+			path = Realm;
 			sourceTree = "<group>";
 		};
 		C1C3A2CC2B3B31C7009014F7 /* API */ = {
@@ -483,6 +503,7 @@
 				C1F1AA5E2C15ADE500D10982 /* RoleSelectionService.swift in Sources */,
 				C12482962D1B201F00BDEF81 /* RestaurantDashboardView.swift in Sources */,
 				C16D3A012CFCB0010087F3CB /* RestaurantViewModel.swift in Sources */,
+				C1C2069C2D34305F00E6FBAF /* ReservationResponse.swift in Sources */,
 				C17A0AE52C5F8688002576C4 /* UIImageExtension.swift in Sources */,
 				C1030AF32BE51F2F0015820C /* AuthenticationViewModel.swift in Sources */,
 				C1C3A2DC2B45B177009014F7 /* LoginView.swift in Sources */,
@@ -493,6 +514,7 @@
 				C17A0ADF2C5E4922002576C4 /* CameraLocationState.swift in Sources */,
 				C1DBD2202C565BDE004A1FD4 /* HomeViewController.swift in Sources */,
 				C1DCDA922C1DD09B0087719B /* TabBarController.swift in Sources */,
+				C1385B402D38546D00FD1EBA /* DateConverter.swift in Sources */,
 				C16BFFE92D1D8BC000B4CED6 /* MealsService.swift in Sources */,
 				C1C3A2D22B45AE98009014F7 /* SignUpViewController.swift in Sources */,
 				C1C3A2CB2B3B3105009014F7 /* AuthenticationViewController.swift in Sources */,
@@ -501,6 +523,7 @@
 				C1030AFE2BE5252F0015820C /* AuthResponse.swift in Sources */,
 				C1C3A2C32B3B267A009014F7 /* JWTAuthentication.swift in Sources */,
 				C17A0ADA2C5E44D2002576C4 /* CameraPuckLocationConsumer.swift in Sources */,
+				C1385B422D3856A600FD1EBA /* TimeComponents.swift in Sources */,
 				C1030B062BE54A4B0015820C /* UserDB.swift in Sources */,
 				C1C3A2D62B45B10B009014F7 /* AuthenticationView.swift in Sources */,
 				C16BFFE42D1D8B7900B4CED6 /* MealsViewModel.swift in Sources */,
@@ -516,6 +539,7 @@
 				C1DBD2282C5673C3004A1FD4 /* CustomMapView.swift in Sources */,
 				C131ED782D0F24D900D34C5D /* Meal.swift in Sources */,
 				C1B2A6A32D217E2500F7F45C /* RealTimeUpdatesManager.swift in Sources */,
+				C1C2069F2D35BD9F00E6FBAF /* MealDB.swift in Sources */,
 				C1797CBA2BF104FF000D6934 /* RealmMigrator.swift in Sources */,
 				C16D39FA2CFC80B30087F3CB /* RestaurantsService.swift in Sources */,
 				C12482942D1B1D6C00BDEF81 /* RestaurantDashboardController.swift in Sources */,

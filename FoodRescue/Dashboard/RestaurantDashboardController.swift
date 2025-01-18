@@ -16,7 +16,8 @@ class RestaurantDashboardController: UIViewController {
         RestaurantDashboardView(
             viewModel: mealsViewModel,
             createMealAction: showCreateMealController,
-            deleteMealAction: deleteMeal
+            deleteMealAction: deleteMeal,
+            reserveMealAction: reserveMeal
         )
     }()
     
@@ -68,5 +69,9 @@ class RestaurantDashboardController: UIViewController {
     
     private func deleteMeal(at indexSet: IndexSet) {
         mealsViewModel.deleteMealById(at: indexSet)
+    }
+    
+    private func reserveMeal(at indexSet: IndexSet) {
+        mealsViewModel.reserveMeal(at: indexSet)
     }
 }

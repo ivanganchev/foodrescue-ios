@@ -9,6 +9,8 @@ import UIKit
 
 class MealsViewModel: ObservableObject {
     @Published var meals: [Meal] = []
+    @Published var selectedMealIndex: Int? = nil
+    @Published var reservedMeals: [Int: TimeComponents] = [:]
     
     let restaurant: Restaurant
     
@@ -67,11 +69,46 @@ class MealsViewModel: ObservableObject {
         }
     }
     
+    func reserveMeal(at indexSet: IndexSet) {
+        guard let index = indexSet.first else { return }
+        
+        let meal = meals[index]
+        let id = meal.id
+        
+        mealsService.updateReservation(id, reserveTime: 2, userId: userSessionService.getUserId(), action: ReserveAction.reserve) { result in
+            switch result {
+            case .success(let reservationExpiration):
+                guard let timeLeft = DateConverter.timeLeft(from: reservationExpiration) else { return }
+                self.reservedMeals[index] = timeLeft
+            case .failure(let error):
+                print("Failed to reserve meal: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+//    func releaseMeal() {
+//        mealsService.updateReservation(id, reserveTime: 1, userId: userSessionService.getUserId(), action: ReserveAction.reserve) { result in
+//            switch result {
+//            case .success(let reservationExpiration):
+//                completion(reservationExpiration)
+//            case .failure(let error):
+//                print("Failed to reserve meal: \(error.localizedDescription)")
+//            }
+//        }
+//    }
+    
     func getMealsByRestaurantId(_ restaurantId: String) {
         mealsService.getMealsByRestaurantId(restaurantId) { [weak self] result in
             switch result {
             case .success(let meals):
                 self?.meals = meals
+                
+                for (index, meal) in meals.enumerated() {
+                    if let reservationExpiresAt = meal.reservationExpiresAt,
+                       let timeLeft = DateConverter.timeLeft(from: reservationExpiresAt) {
+                        self?.reservedMeals[index] = timeLeft
+                    }
+                }
             case .failure(let error):
                 print("Failed to fetch meals: \(error.localizedDescription)")
             }

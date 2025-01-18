@@ -5,8 +5,14 @@
 //  Created by Ivan Ganchev on 2024-12-26.
 //
 
-import Alamofire
 import UIKit
+import Alamofire
+import RealmSwift
+
+enum ReserveAction: String {
+    case reserve = "reserve"
+    case release = "release"
+}
 
 class MealsService: BaseService {
     func createMeal(name: String, description: String, price: String, image: UIImage, restaurantId: String, completion: @escaping (Result<Meal, Error>) -> Void) {
@@ -61,14 +67,49 @@ class MealsService: BaseService {
         
         AF.request(url, method: .delete, headers: headers).responseData { response in
             switch response.result {
-            case .success(let value):
+            case .success(_):
                 completion(.success(()))
             case .failure(let error):
                 completion(.failure(error))
             }
         }
     }
-
+    
+    func updateReservation(_ mealId: String, reserveTime: Int, userId: String, action: ReserveAction, completion: @escaping (Result<String, Error>) -> Void) {
+        guard let token = jwtAuthenticator.keychain.get("token") else {
+            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Token not found"])))
+            return
+        }
+        
+        let url = "https://foodrescue-api.onrender.com/meals/updateReservation"
+        let headers: HTTPHeaders = [
+            "Authorization": "\(token)"
+        ]
+        
+        let parameters: [String: Any] = [
+            "id": mealId,
+            "reservationTime": reserveTime,
+            "userId": userId,
+            "action": action.rawValue
+        ]
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseData {[weak self] response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let reservationResponse = try JSONDecoder().decode(ReservationResponse.self, from: data)
+                    
+//                    self?.updateMealReservation(mealId: mealId, expirationTime: reservationResponse.reservationExpiresAt, reserverId: userId)
+                    
+                    completion(.success((reservationResponse.reservationExpiresAt)))
+                } catch {
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
     
     func getMealsByRestaurantId(_ id: String, completion: @escaping (Result<[Meal], Error>) -> Void) {
         guard let token = jwtAuthenticator.keychain.get("token") else { return }
@@ -90,6 +131,37 @@ class MealsService: BaseService {
             case .failure(let error):
                 completion(.failure(error))
             }
+        }
+    }
+}
+
+// MARK: - Realm Service
+extension MealsService {
+    func saveMeal(_ meal: Meal) {
+        do {
+            let realm = try Realm()
+            
+            realm.safeWrite {
+                realm.add(MealDB(meal: meal))
+                print("Successfully added Meal")
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    func updateMealReservation(mealId: String, expirationTime: String?, reserverId: String?) {
+        do {
+            let realm = try Realm()
+            
+            guard let meal = realm.object(ofType: MealDB.self, forPrimaryKey: mealId) else { return }
+            
+            realm.safeWrite {
+                meal.reservationExpiresAt = expirationTime
+                meal.reservedBy = reserverId
+            }
+        } catch {
+            print(error)
         }
     }
 }

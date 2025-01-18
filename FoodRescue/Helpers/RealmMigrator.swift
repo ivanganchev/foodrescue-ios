@@ -10,7 +10,7 @@ import RealmSwift
 
 class RealmMigrator {
     static func migrateRealm() {
-        let latestSchemaVersion: UInt64 = 1
+        let latestSchemaVersion: UInt64 = 2
         let config = Realm.Configuration(schemaVersion: latestSchemaVersion,
                                          migrationBlock: {
             migration, version in
