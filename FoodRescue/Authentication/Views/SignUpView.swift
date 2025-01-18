@@ -23,12 +23,17 @@ class SignUpView: AuthenticationView {
         setEmailField()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        emailField.addBottomBorder(withColor: UIColor.lightGray, andHeight: 1)
+    }
+    
     func setEmailField() {
         emailField.translatesAutoresizingMaskIntoConstraints = false
         emailField.textColor = UIColor.mainGrey
         emailField.leftViewMode = .always
         emailField.layer.masksToBounds = true
-        emailField.addBottomBorder(withColor: UIColor.lightGray, andHeight: 1)
         emailField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
         emailField.attributedPlaceholder = NSAttributedString(
             string: "Email",

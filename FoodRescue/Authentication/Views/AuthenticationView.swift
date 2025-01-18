@@ -49,6 +49,13 @@ class AuthenticationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        userNameField.addBottomBorder(withColor: UIColor.lightGray, andHeight: 1)
+        passwordField.addBottomBorder(withColor: UIColor.lightGray, andHeight: 1)
+    }
+    
     func setUpViews(authTypeText: String, changeAuthTypeText: String) {
         setupBackground()
         setAuthTypeLabel(withText: authTypeText)
@@ -70,7 +77,6 @@ class AuthenticationView: UIView {
         userNameField.textColor = UIColor.mainGrey
         userNameField.leftViewMode = .always
         userNameField.layer.masksToBounds = true
-        userNameField.addBottomBorder(withColor: UIColor.lightGray, andHeight: 1)
         userNameField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
         userNameField.attributedPlaceholder = NSAttributedString(
             string: "Username",
@@ -91,7 +97,6 @@ class AuthenticationView: UIView {
         passwordField.textColor = UIColor.mainGrey
         passwordField.leftViewMode = .always
         passwordField.layer.masksToBounds = true
-        passwordField.addBottomBorder(withColor: UIColor.lightGray, andHeight: 1)
         passwordField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
         passwordField.attributedPlaceholder = NSAttributedString(
             string: "Password",
