@@ -10,11 +10,22 @@ import RealmSwift
 
 class RealmMigrator {
     static func migrateRealm() {
-        let latestSchemaVersion: UInt64 = 2
+        let latestSchemaVersion: UInt64 = 3
+        
         let config = Realm.Configuration(schemaVersion: latestSchemaVersion,
-                                         migrationBlock: {
-            migration, version in
-            // Still no migration code
+                                         migrationBlock: { migration, oldSchemaVersion in
+            if oldSchemaVersion < 3 {
+                //Map the old 'reservationExpiration' to the new 'reservationExpiresAt'
+                migration.enumerateObjects(ofType: "MealDB") { oldObject, newObject in
+                    if let oldExpiration = oldObject?["reservationExpiration"] as? Date {
+                        newObject?["reservationExpiresAt"] = oldExpiration
+                    }
+                    
+                    newObject?["reserved"] = false
+                }
+            }
         })
+        
+        Realm.Configuration.defaultConfiguration = config
     }
 }
