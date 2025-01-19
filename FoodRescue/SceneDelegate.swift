@@ -28,6 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 self.logout()
             }
         })
+        
+        RealmMigrator.migrateRealm()
     }
 
     func logout() {
