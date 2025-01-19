@@ -21,6 +21,18 @@ class UserSessionService: BaseService {
         }
     }
     
+    func getUserRole () -> Role? {
+        do {
+            let realm = try Realm()
+            let user = realm.objects(UserDB.self).first
+            
+            return user?.role ?? nil
+        } catch {
+            print(error)
+            return nil
+        }
+    }
+    
     func logout() {
         Realm.reset()
         jwtAuthenticator.deleteJWToken()

@@ -33,8 +33,8 @@ class RestaurantDashboardController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let restaurantId = mealsViewModel.restaurant.id {
-            mealsViewModel.getMealsByRestaurantId(restaurantId)
+        if let restaurantId = mealsViewModel.restaurant?.id {
+            mealsViewModel.getMealsByRestaurantIds([restaurantId])
         }
         
         let restaurantDashboard = UIHostingController(rootView: restaurantDashboardView)
@@ -55,7 +55,7 @@ class RestaurantDashboardController: UIViewController {
     }
     
     private func showCreateMealController() {
-        guard let restaurantId = mealsViewModel.restaurant.id else {
+        guard let restaurantId = mealsViewModel.restaurant?.id else {
             return
         }
         

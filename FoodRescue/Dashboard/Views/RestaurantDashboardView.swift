@@ -17,7 +17,7 @@ struct RestaurantDashboardView: View {
     
     var body: some View {
         VStack {
-            Text(viewModel.restaurant.name)
+            Text(viewModel.restaurant?.name ?? "")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.top, 20)
@@ -39,7 +39,8 @@ struct RestaurantDashboardView: View {
                             selectAction: {
                                 viewModel.selectedMealIndex = viewModel.selectedMealIndex == index ? nil : index
                             },
-                            viewModel: viewModel
+                            viewModel: viewModel,
+                            reservedBy: nil
                         )
                     }
                     .onDelete(perform: deleteMealAction)
@@ -115,6 +116,7 @@ struct MealCell: View {
     let timeRemaining: TimeComponents?
     let selectAction: () -> Void
     let viewModel: MealsViewModel
+    let reservedBy: String?
 
     var body: some View {
         HStack(alignment: .top, spacing: 15) {
@@ -135,6 +137,12 @@ struct MealCell: View {
                 Text(meal.price)
                     .font(.subheadline)
                     .foregroundColor(.green)
+                
+                if let reservedBy = reservedBy {
+                    Text("Reserved by: \(reservedBy)")
+                        .font(.subheadline)
+                        .foregroundColor(.blue)
+                }
                 
                 if let time = timeRemaining {
                     Text("Reserved for \(time.minutes) min \(time.seconds) sec")

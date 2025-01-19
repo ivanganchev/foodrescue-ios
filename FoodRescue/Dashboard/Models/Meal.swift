@@ -16,7 +16,7 @@ struct Meal: Decodable, Identifiable {
     let restaurantId: String
     let reservationExpiresAt: String?
     let reservedBy: String?
-    let reserved: Bool
+    let reserved: Bool?
 }
     
 

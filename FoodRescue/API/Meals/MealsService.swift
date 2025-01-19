@@ -111,20 +111,25 @@ class MealsService: BaseService {
         }
     }
     
-    func getMealsByRestaurantId(_ id: String, completion: @escaping (Result<[Meal], Error>) -> Void) {
+    func getMealsByRestaurantIds(_ ids: [String], completion: @escaping (Result<[Meal], Error>) -> Void) {
         guard let token = jwtAuthenticator.keychain.get("token") else { return }
         
-        let url = "https://foodrescue-api.onrender.com/meals/by-restaurant/\(id)"
+        let url = "https://foodrescue-api.onrender.com/meals/by-restaurants"
         let headers: HTTPHeaders = [
-            "Authorization": "\(token)"
+            "Authorization": "\(token)",
+            "Content-Type": "application/json"
         ]
         
-        AF.request(url, headers: headers).responseData { response in
+        let parameters: [String: Any] = [
+            "restaurantIds": ids
+        ]
+        
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseData { response in
             switch response.result {
             case .success(let data):
                 do {
-                    let meal = try JSONDecoder().decode([Meal].self, from: data)
-                    completion(.success(meal))
+                    let meals = try JSONDecoder().decode([Meal].self, from: data)
+                    completion(.success(meals))
                 } catch {
                     completion(.failure(error))
                 }

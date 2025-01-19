@@ -12,16 +12,15 @@ class MealsViewModel: ObservableObject {
     @Published var selectedMealIndex: Int? = nil
     @Published var reservedMeals: [Int: TimeComponents] = [:]
     
-    let restaurant: Restaurant
+    var restaurant: Restaurant?
     
     private let mealsService = MealsService()
-    private let userSessionService: UserSessionService
+    let userSessionService: UserSessionService
     
     private let realTimeUpdatesManager = RealTimeUpdatesManager()
     
-    init(userSessionService: UserSessionService, restaurant: Restaurant) {
+    init(userSessionService: UserSessionService) {
         self.userSessionService = userSessionService
-        self.restaurant = restaurant
         
         realTimeUpdatesManager.subscribe(to: .newMeal) { [weak self] (newMeal: Meal) in
             DispatchQueue.main.async {
@@ -38,6 +37,10 @@ class MealsViewModel: ObservableObject {
     
     deinit {
         realTimeUpdatesManager.disconnect()
+    }
+    
+    func setCurrentRestaurant(_ restaurant: Restaurant) {
+        self.restaurant = restaurant
     }
     
     func createMeal(name: String, description: String, price: String, image: UIImage, restaurantId: String, completion: @escaping () -> Void) {
@@ -97,8 +100,8 @@ class MealsViewModel: ObservableObject {
 //        }
 //    }
     
-    func getMealsByRestaurantId(_ restaurantId: String) {
-        mealsService.getMealsByRestaurantId(restaurantId) { [weak self] result in
+    func getMealsByRestaurantIds(_ restaurantIds: [String]) {
+        mealsService.getMealsByRestaurantIds(restaurantIds) { [weak self] result in
             switch result {
             case .success(let meals):
                 self?.meals = meals
@@ -117,6 +120,6 @@ class MealsViewModel: ObservableObject {
     
     
     func isUserOwner() -> Bool {
-        userSessionService.getUserId() == restaurant.ownerId
+        userSessionService.getUserId() == restaurant?.ownerId
     }
 }

@@ -52,4 +52,15 @@ class RestaurantViewModel {
             }
         }
     }
+    
+    func getAllRestaurants(for ownerId: String, completion: @escaping ([Restaurant]) -> Void) {
+        restaurantService.getAllRestaurants(for: ownerId) { result in
+            switch result {
+            case .success(let restaurants):
+                completion(restaurants)
+            case .failure(let error):
+                print("Failed to fetch restaurants: \(error.localizedDescription)")
+            }
+        }
+    }
 }

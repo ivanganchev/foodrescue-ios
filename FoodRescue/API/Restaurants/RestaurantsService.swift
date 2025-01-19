@@ -79,5 +79,30 @@ class RestaurantsService: BaseService {
             }
         }
     }
+    
+    func getAllRestaurants(for ownerId: String, completion: @escaping (Result<[Restaurant], Error>) -> Void) {
+        guard let token = jwtAuthenticator.keychain.get("token") else { return }
+        
+        let url = "https://foodrescue-api.onrender.com/restaurants/by-owner/\(ownerId)"
+        let headers: HTTPHeaders = [
+            "Authorization": "\(token)"
+        ]
+        
+        AF.request(url, method: .get, headers: headers).responseData { response in
+            switch response.result {
+            case .success(let data):
+                do {
+                    let restaurants = try JSONDecoder().decode([Restaurant].self, from: data)
+                    completion(.success(restaurants))
+                } catch {
+                    print(error)
+                    completion(.failure(error))
+                }
+            case .failure(let error):
+                print(error)
+                completion(.failure(error))
+            }
+        }
+    }
 }
 
