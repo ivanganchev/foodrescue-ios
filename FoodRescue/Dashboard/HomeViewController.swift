@@ -25,7 +25,7 @@ class HomeViewController: UIViewController {
         let homeView = UIHostingController(
             rootView: userSessionService.getUserRole() == .customer
                 ? AnyView(CustomerHomeView())
-                : AnyView(OwnerHomeView(viewModel: mealsViewModel))
+                : AnyView(OwnerHomeView(restaurantViewModel: restaurantViewModel, mealsViewModel: mealsViewModel))
         )
         
         addChild(homeView)

@@ -8,20 +8,22 @@
 import SwiftUI
 
 struct OwnerHomeView: View {
-    @ObservedObject var viewModel: MealsViewModel
+    @ObservedObject var restaurantViewModel: RestaurantViewModel
+    @ObservedObject var mealsViewModel: MealsViewModel
 
     var body: some View {
         List {
-            ForEach(viewModel.mealsByRestaurant, id: \.restaurant) { group in
+            ForEach(mealsViewModel.mealsByRestaurant, id: \.restaurant) { group in
                 RestaurantSectionView(
-                    restaurant: group.restaurant,
+                    restaurantId: group.restaurant,
                     meals: group.meals,
-                    viewModel: viewModel
+                    restaurantViewModel: restaurantViewModel,
+                    mealsViewModel: mealsViewModel
                 )
             }
         }
         .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
-            viewModel.updateTimers()
+            mealsViewModel.updateTimers()
         }
     }
 }
@@ -29,22 +31,25 @@ struct OwnerHomeView: View {
 
 
 struct RestaurantSectionView: View {
-    let restaurant: String
+    let restaurantId: String
     let meals: [Meal]
-    let viewModel: MealsViewModel
+    let restaurantViewModel: RestaurantViewModel
+    let mealsViewModel: MealsViewModel
+    
 
     var body: some View {
-        Section(header: Text(restaurant).font(.title3)) {
+        Section(header: Text("🍕 \(restaurantViewModel.getRestaurantById(restaurantId)?.name ?? "")")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.black)) {
             ForEach(meals) { meal in
                 MealCell(
                     meal: meal,
                     isSelected: false,
                     isDisabled: false,
-                    timeRemaining: viewModel.reservedMeals[meal.id],
-                    selectAction: {
-                        
-                    },
-                    viewModel: viewModel,
+                    timeRemaining: mealsViewModel.reservedMeals[meal.id],
+                    selectAction: {},
+                    viewModel: mealsViewModel,
                     reservedBy: nil
                 )
             }

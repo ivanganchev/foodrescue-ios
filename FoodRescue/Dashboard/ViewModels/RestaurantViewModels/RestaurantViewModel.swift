@@ -8,8 +8,8 @@
 import Foundation
 import UIKit
 
-class RestaurantViewModel {
-    var restaurants: [Restaurant] = []
+class RestaurantViewModel: ObservableObject {
+    @Published var restaurants: [Restaurant] = []
     let restaurantService = RestaurantsService()
     private let realTimeUpdatesManager = RealTimeUpdatesManager()
     
@@ -54,13 +54,18 @@ class RestaurantViewModel {
     }
     
     func getAllRestaurants(for ownerId: String, completion: @escaping ([Restaurant]) -> Void) {
-        restaurantService.getAllRestaurants(for: ownerId) { result in
+        restaurantService.getAllRestaurants(for: ownerId) { [weak self] result in
             switch result {
             case .success(let restaurants):
+                self?.restaurants = restaurants
                 completion(restaurants)
             case .failure(let error):
                 print("Failed to fetch restaurants: \(error.localizedDescription)")
             }
         }
+    }
+    
+    func getRestaurantById(_ id: String) -> Restaurant? {
+        return restaurants.filter { $0.id == id }.first
     }
 }
