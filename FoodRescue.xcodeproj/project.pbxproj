@@ -30,6 +30,7 @@
 		C13747322D3D621200C8E183 /* CustomerHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13747312D3D621200C8E183 /* CustomerHomeView.swift */; };
 		C1385B402D38546D00FD1EBA /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1385B3F2D38546D00FD1EBA /* DateConverter.swift */; };
 		C1385B422D3856A600FD1EBA /* TimeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1385B412D3856A600FD1EBA /* TimeComponents.swift */; };
+		C14E50C82D3F0A3600DB80E3 /* TimerUitility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E50C72D3F0A3600DB80E3 /* TimerUitility.swift */; };
 		C16BFFE42D1D8B7900B4CED6 /* MealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16BFFE32D1D8B7900B4CED6 /* MealsViewModel.swift */; };
 		C16BFFE92D1D8BC000B4CED6 /* MealsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16BFFE82D1D8BC000B4CED6 /* MealsService.swift */; };
 		C16BFFEB2D1D8E8600B4CED6 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16BFFEA2D1D8E8600B4CED6 /* BaseService.swift */; };
@@ -110,6 +111,7 @@
 		C13747312D3D621200C8E183 /* CustomerHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerHomeView.swift; sourceTree = "<group>"; };
 		C1385B3F2D38546D00FD1EBA /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		C1385B412D3856A600FD1EBA /* TimeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeComponents.swift; sourceTree = "<group>"; };
+		C14E50C72D3F0A3600DB80E3 /* TimerUitility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUitility.swift; sourceTree = "<group>"; };
 		C16BFFE32D1D8B7900B4CED6 /* MealsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewModel.swift; sourceTree = "<group>"; };
 		C16BFFE82D1D8BC000B4CED6 /* MealsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsService.swift; sourceTree = "<group>"; };
 		C16BFFEA2D1D8E8600B4CED6 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 			children = (
 				C17A0ADE2C5E4922002576C4 /* CameraLocationState.swift */,
 				C1385B3F2D38546D00FD1EBA /* DateConverter.swift */,
+				C14E50C72D3F0A3600DB80E3 /* TimerUitility.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				C1F20CEC2D2B16AD00B821F9 /* ProfileViewController.swift in Sources */,
 				C17A0ADC2C5E48B4002576C4 /* MapInteractionButton.swift in Sources */,
 				C1C3A2DA2B45B166009014F7 /* SignUpView.swift in Sources */,
+				C14E50C82D3F0A3600DB80E3 /* TimerUitility.swift in Sources */,
 				C1F20CEE2D2B16CF00B821F9 /* ProfileView.swift in Sources */,
 				C1DBD2282C5673C3004A1FD4 /* CustomMapView.swift in Sources */,
 				C131ED782D0F24D900D34C5D /* Meal.swift in Sources */,

@@ -117,4 +117,8 @@ class MealsViewModel: ObservableObject {
     func isUserOwner() -> Bool {
         userSessionService.getUserId() == restaurant?.ownerId
     }
+    
+    func updateTimers() {
+        TimerUtility.updateTimers(reservedMeals: &reservedMeals)
+    }
 }

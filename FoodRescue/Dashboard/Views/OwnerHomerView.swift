@@ -20,6 +20,9 @@ struct OwnerHomeView: View {
                 )
             }
         }
+        .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
+            viewModel.updateTimers()
+        }
     }
 }
 
@@ -31,7 +34,7 @@ struct RestaurantSectionView: View {
     let viewModel: MealsViewModel
 
     var body: some View {
-        Section(header: Text(restaurant).font(.title2)) {
+        Section(header: Text(restaurant).font(.title3)) {
             ForEach(meals) { meal in
                 MealCell(
                     meal: meal,

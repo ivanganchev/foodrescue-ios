@@ -18,6 +18,10 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        restaurantViewModel.getAllRestaurants(for: userSessionService.getUserId()) { [weak self] restaurants in
+            self?.mealsViewModel.getMealsByRestaurantIds(restaurants.map { $0.id })
+        }
+                                                        
         let homeView = UIHostingController(
             rootView: userSessionService.getUserRole() == .customer
                 ? AnyView(CustomerHomeView())

@@ -84,27 +84,12 @@ struct RestaurantDashboardView: View {
             .padding(.bottom, 10)
         }
         .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
-            updateTimers()
+            viewModel.updateTimers()
         }
     }
     
     func reserveMeal(index: Int) {
         reserveMealAction(IndexSet(integer: index))
-    }
-    
-    private func updateTimers() {
-        for (index, timeRemaining) in viewModel.reservedMeals {
-            if timeRemaining.minutes > 0 || timeRemaining.seconds > 0 {
-                let newSeconds = timeRemaining.seconds - 1
-                let updatedTime = TimeComponents(
-                    minutes: newSeconds < 0 ? timeRemaining.minutes - 1 : timeRemaining.minutes,
-                    seconds: newSeconds < 0 ? 59 : newSeconds
-                )
-                viewModel.reservedMeals[index] = updatedTime
-            } else {
-                viewModel.reservedMeals.removeValue(forKey: index)
-            }
-        }
     }
 }
 
