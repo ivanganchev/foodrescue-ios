@@ -23,7 +23,7 @@ class RoleSelectionService: BaseService {
         ]
         
         let headers: HTTPHeaders = [
-            "Authorization": "Bearer \(token)"
+            "Authorization": "\(token)"
         ]
         
         AF.request("https://foodrescue-api.onrender.com/users/addRole", method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseData { [weak self] response in

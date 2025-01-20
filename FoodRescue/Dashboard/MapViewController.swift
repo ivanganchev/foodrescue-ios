@@ -9,9 +9,22 @@ import UIKit
 import MapboxMaps
 
 class MapViewController: UIViewController {
-    private var mapView = CustomMapView(frame: .zero)
+    private var mapView: CustomMapView
     private let restaurantViewModel = RestaurantViewModel()
     private let userSessionService = UserSessionService()
+    
+    init() {
+        guard let userRole = userSessionService.getUserRole() else {
+            fatalError("User role must not be nil")
+        }
+        self.mapView = CustomMapView(userRole: userRole)
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

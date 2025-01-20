@@ -30,12 +30,12 @@ struct RestaurantDashboardView: View {
                     .padding()
             } else {
                 List {
-                    ForEach(viewModel.meals.indices, id: \.self) { index in
+                    ForEach(Array(viewModel.meals.enumerated()), id: \.1.id) { (index, meal) in
                         MealCell(
                             meal: viewModel.meals[index],
                             isSelected: viewModel.selectedMealIndex == index,
-                            isDisabled: viewModel.reservedMeals.keys.contains(index),
-                            timeRemaining: viewModel.reservedMeals[index],
+                            isDisabled: viewModel.reservedMeals.keys.contains(meal.id),
+                            timeRemaining: viewModel.reservedMeals[meal.id],
                             selectAction: {
                                 viewModel.selectedMealIndex = viewModel.selectedMealIndex == index ? nil : index
                             },
@@ -77,7 +77,7 @@ struct RestaurantDashboardView: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
-                    .disabled(viewModel.selectedMealIndex == nil || viewModel.reservedMeals.keys.contains(viewModel.selectedMealIndex!))
+                    .disabled(viewModel.selectedMealIndex == nil || viewModel.reservedMeals.keys.contains(viewModel.meals[viewModel.selectedMealIndex!].id))
                 }
             }
             .padding(.horizontal)

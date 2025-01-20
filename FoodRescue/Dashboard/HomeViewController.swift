@@ -18,6 +18,24 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let homeView = UIHostingController(rootView: HomeView(restaurantViewModel: restaurantViewModel, mealsViewModel: mealsViewModel))
+        let homeView = UIHostingController(
+            rootView: userSessionService.getUserRole() == .customer
+                ? AnyView(CustomerHomeView())
+                : AnyView(OwnerHomeView(viewModel: mealsViewModel))
+        )
+        
+        addChild(homeView)
+        view.addSubview(homeView.view)
+        
+        homeView.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            homeView.view.topAnchor.constraint(equalTo: view.topAnchor),
+            homeView.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            homeView.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            homeView.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        ])
+        
+        homeView.didMove(toParent: self)
     }
 }

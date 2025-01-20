@@ -14,6 +14,8 @@ class CustomMapView: UIView {
     var cameraLocationConsumer: CameraPuckLocationConsumer!
     var pointAnnotationManager: PointAnnotationManager!
     
+    var userRole: Role
+    
     private var cameraLocationState = CameraLocationState(rawValue: "none")
     
     var locateMeButton = MapInteractionButton(imageName: "location",
@@ -46,8 +48,10 @@ class CustomMapView: UIView {
     
     var canAddRestaurant = false
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(userRole: Role) {
+        self.userRole = userRole
+        
+        super.init(frame: .zero)
         
         mapView = MapView(frame: self.bounds)
         mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -82,7 +86,7 @@ class CustomMapView: UIView {
     private func setAddRestaurantButton() {
         self.addRestaurantButton.translatesAutoresizingMaskIntoConstraints = false
         self.addRestaurantButton.addTarget(self, action: #selector(addRestaurantTapped), for: .touchUpInside)
-        self.addRestaurantButton.isHidden = false
+        self.addRestaurantButton.isHidden = self.userRole == .customer
     }
     
     private func setCancelButton() {

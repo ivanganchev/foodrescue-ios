@@ -9,17 +9,17 @@ import Foundation
 import RealmSwift
 
 enum Role: String, PersistableEnum, Codable {
-    case customer = "Customer"
-    case owner = "Owner"
+    case customer = "customer"
+    case owner = "owner"
     
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         let rawValue = try container.decode(String.self)
 
         switch rawValue {
-        case "Customer":
+        case "customer":
             self = .customer
-        case "Owner":
+        case "owner":
             self = .owner
         default:
             throw DecodingError.dataCorruptedError(

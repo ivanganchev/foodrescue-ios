@@ -10,7 +10,7 @@ import UIKit
 class MealsViewModel: ObservableObject {
     @Published var meals: [Meal] = []
     @Published var selectedMealIndex: Int? = nil
-    @Published var reservedMeals: [Int: TimeComponents] = [:]
+    @Published var reservedMeals: [String: TimeComponents] = [:]
     
     var restaurant: Restaurant?
     
@@ -18,6 +18,12 @@ class MealsViewModel: ObservableObject {
     let userSessionService: UserSessionService
     
     private let realTimeUpdatesManager = RealTimeUpdatesManager()
+    
+    var mealsByRestaurant: [(restaurant: String, meals: [Meal])] {
+        Dictionary(grouping: meals, by: { $0.restaurantId })
+            .map { (key: String, value: [Meal]) in (restaurant: key, meals: value) }
+            .sorted { $0.restaurant < $1.restaurant }
+    }
     
     init(userSessionService: UserSessionService) {
         self.userSessionService = userSessionService
@@ -82,23 +88,12 @@ class MealsViewModel: ObservableObject {
             switch result {
             case .success(let reservationExpiration):
                 guard let timeLeft = DateConverter.timeLeft(from: reservationExpiration) else { return }
-                self.reservedMeals[index] = timeLeft
+                self.reservedMeals[id] = timeLeft
             case .failure(let error):
                 print("Failed to reserve meal: \(error.localizedDescription)")
             }
         }
     }
-    
-//    func releaseMeal() {
-//        mealsService.updateReservation(id, reserveTime: 1, userId: userSessionService.getUserId(), action: ReserveAction.reserve) { result in
-//            switch result {
-//            case .success(let reservationExpiration):
-//                completion(reservationExpiration)
-//            case .failure(let error):
-//                print("Failed to reserve meal: \(error.localizedDescription)")
-//            }
-//        }
-//    }
     
     func getMealsByRestaurantIds(_ restaurantIds: [String]) {
         mealsService.getMealsByRestaurantIds(restaurantIds) { [weak self] result in
@@ -106,10 +101,10 @@ class MealsViewModel: ObservableObject {
             case .success(let meals):
                 self?.meals = meals
                 
-                for (index, meal) in meals.enumerated() {
+                for (index, meal) in meals.enumerated() {                    
                     if let reservationExpiresAt = meal.reservationExpiresAt,
                        let timeLeft = DateConverter.timeLeft(from: reservationExpiresAt) {
-                        self?.reservedMeals[index] = timeLeft
+                        self?.reservedMeals[meal.id] = timeLeft
                     }
                 }
             case .failure(let error):
