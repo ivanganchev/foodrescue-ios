@@ -31,6 +31,8 @@
 		C1385B402D38546D00FD1EBA /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1385B3F2D38546D00FD1EBA /* DateConverter.swift */; };
 		C1385B422D3856A600FD1EBA /* TimeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1385B412D3856A600FD1EBA /* TimeComponents.swift */; };
 		C14E50C82D3F0A3600DB80E3 /* TimerUitility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E50C72D3F0A3600DB80E3 /* TimerUitility.swift */; };
+		C14E50CC2D3FAE8A00DB80E3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E50CB2D3FAE8A00DB80E3 /* LocationManager.swift */; };
+		C14E50CE2D3FC16600DB80E3 /* CLLocationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14E50CD2D3FC16600DB80E3 /* CLLocationExtension.swift */; };
 		C16BFFE42D1D8B7900B4CED6 /* MealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16BFFE32D1D8B7900B4CED6 /* MealsViewModel.swift */; };
 		C16BFFE92D1D8BC000B4CED6 /* MealsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16BFFE82D1D8BC000B4CED6 /* MealsService.swift */; };
 		C16BFFEB2D1D8E8600B4CED6 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16BFFEA2D1D8E8600B4CED6 /* BaseService.swift */; };
@@ -112,6 +114,8 @@
 		C1385B3F2D38546D00FD1EBA /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		C1385B412D3856A600FD1EBA /* TimeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeComponents.swift; sourceTree = "<group>"; };
 		C14E50C72D3F0A3600DB80E3 /* TimerUitility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerUitility.swift; sourceTree = "<group>"; };
+		C14E50CB2D3FAE8A00DB80E3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		C14E50CD2D3FC16600DB80E3 /* CLLocationExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationExtension.swift; sourceTree = "<group>"; };
 		C16BFFE32D1D8B7900B4CED6 /* MealsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsViewModel.swift; sourceTree = "<group>"; };
 		C16BFFE82D1D8BC000B4CED6 /* MealsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsService.swift; sourceTree = "<group>"; };
 		C16BFFEA2D1D8E8600B4CED6 /* BaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 				C12C4A922B49887400E0B1D2 /* UIColorExtension.swift */,
 				C1030B0C2BE690470015820C /* RealmExtension.swift */,
 				C17A0AE42C5F8688002576C4 /* UIImageExtension.swift */,
+				C14E50CD2D3FC16600DB80E3 /* CLLocationExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				C17A0ADE2C5E4922002576C4 /* CameraLocationState.swift */,
 				C1385B3F2D38546D00FD1EBA /* DateConverter.swift */,
 				C14E50C72D3F0A3600DB80E3 /* TimerUitility.swift */,
+				C14E50CB2D3FAE8A00DB80E3 /* LocationManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -550,6 +556,7 @@
 				C1C3A2D62B45B10B009014F7 /* AuthenticationView.swift in Sources */,
 				C16BFFE42D1D8B7900B4CED6 /* MealsViewModel.swift in Sources */,
 				C12482982D1C725500BDEF81 /* UserSessionService.swift in Sources */,
+				C14E50CC2D3FAE8A00DB80E3 /* LocationManager.swift in Sources */,
 				C13747302D3D620800C8E183 /* OwnerHomerView.swift in Sources */,
 				C17917152C02121F0005E1B1 /* RoleView.swift in Sources */,
 				C12C4A912B49884400E0B1D2 /* UITextFieldExtension.swift in Sources */,
@@ -560,6 +567,7 @@
 				C1C3A2DA2B45B166009014F7 /* SignUpView.swift in Sources */,
 				C14E50C82D3F0A3600DB80E3 /* TimerUitility.swift in Sources */,
 				C1F20CEE2D2B16CF00B821F9 /* ProfileView.swift in Sources */,
+				C14E50CE2D3FC16600DB80E3 /* CLLocationExtension.swift in Sources */,
 				C1DBD2282C5673C3004A1FD4 /* CustomMapView.swift in Sources */,
 				C131ED782D0F24D900D34C5D /* Meal.swift in Sources */,
 				C1B2A6A32D217E2500F7F45C /* RealTimeUpdatesManager.swift in Sources */,

@@ -10,8 +10,17 @@ import SwiftUI
 struct OwnerHomeView: View {
     @ObservedObject var restaurantViewModel: RestaurantViewModel
     @ObservedObject var mealsViewModel: MealsViewModel
+    let userSession: UserSessionService
 
     var body: some View {
+        Text("My restaurants")
+            .multilineTextAlignment(.center)
+            .font(.title)
+            .fontWeight(.bold)
+            .offset(y: -20)
+        
+        Spacer()
+        
         List {
             ForEach(mealsViewModel.mealsByRestaurant, id: \.restaurant) { group in
                 RestaurantSectionView(
@@ -21,6 +30,9 @@ struct OwnerHomeView: View {
                     mealsViewModel: mealsViewModel
                 )
             }
+        }
+        .onAppear() {
+            restaurantViewModel.getAllRestaurants(for: userSession.getUserId())
         }
         .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
             mealsViewModel.updateTimers()
@@ -35,7 +47,6 @@ struct RestaurantSectionView: View {
     let meals: [Meal]
     let restaurantViewModel: RestaurantViewModel
     let mealsViewModel: MealsViewModel
-    
 
     var body: some View {
         Section(header: Text("🍕 \(restaurantViewModel.getRestaurantById(restaurantId)?.name ?? "")")

@@ -102,7 +102,7 @@ class MealsViewModel: ObservableObject {
             case .success(let meals):
                 self?.meals = meals
                 
-                for (index, meal) in meals.enumerated() {                    
+                for meal in meals {                    
                     if let reservationExpiresAt = meal.reservationExpiresAt,
                        let timeLeft = DateConverter.timeLeft(from: reservationExpiresAt) {
                         self?.reservedMeals[meal.id] = timeLeft

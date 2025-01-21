@@ -24,8 +24,17 @@ class HomeViewController: UIViewController {
                                                         
         let homeView = UIHostingController(
             rootView: userSessionService.getUserRole() == .customer
-                ? AnyView(CustomerHomeView())
-                : AnyView(OwnerHomeView(restaurantViewModel: restaurantViewModel, mealsViewModel: mealsViewModel))
+            ? AnyView(CustomerHomeView(locationManager: LocationManager(), viewModel: restaurantViewModel, restaurantTapAction: {
+                [weak self] restaurant in
+                guard let self = self else { return }
+                
+                let restaurantDashboard = RestaurantDashboardController(mealsViewModel: MealsViewModel(userSessionService: self.userSessionService))
+                restaurantDashboard.mealsViewModel.setCurrentRestaurant(restaurant)
+                restaurantDashboard.modalPresentationStyle = .pageSheet
+        
+                self.present(restaurantDashboard, animated: true, completion: nil)
+            }))
+            : AnyView(OwnerHomeView(restaurantViewModel: restaurantViewModel, mealsViewModel: mealsViewModel, userSession: userSessionService))
         )
         
         addChild(homeView)

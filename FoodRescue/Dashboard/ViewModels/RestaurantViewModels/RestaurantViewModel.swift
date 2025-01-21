@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 class RestaurantViewModel: ObservableObject {
     @Published var restaurants: [Restaurant] = []
@@ -53,12 +54,31 @@ class RestaurantViewModel: ObservableObject {
         }
     }
     
-    func getAllRestaurants(for ownerId: String, completion: @escaping ([Restaurant]) -> Void) {
+    func getAllRestaurants(for ownerId: String, completion: (([Restaurant]) -> Void)? = nil) {
         restaurantService.getAllRestaurants(for: ownerId) { [weak self] result in
             switch result {
             case .success(let restaurants):
                 self?.restaurants = restaurants
-                completion(restaurants)
+                completion?(restaurants)
+            case .failure(let error):
+                print("Failed to fetch restaurants: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    func getAllNearbyRestaurants(userLatitude: Double, userLongitude: Double, maxDistance: Double) {
+        restaurantService.getAllRestaurants { [weak self] result in
+            switch result {
+            case .success(let restaurants):
+                let userLocation = CLLocation(latitude: userLatitude, longitude: userLongitude)
+                let nearbyRestaurants = restaurants.filter { restaurant in
+                    let restaurantLocation = CLLocation(latitude: restaurant.latitude, longitude: restaurant.longitude)
+                    let distance = userLocation.distance(to: restaurantLocation)
+                    return distance <= maxDistance
+                }
+                DispatchQueue.main.async {
+                    self?.restaurants = nearbyRestaurants
+                }
             case .failure(let error):
                 print("Failed to fetch restaurants: \(error.localizedDescription)")
             }
