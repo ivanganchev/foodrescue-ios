@@ -99,9 +99,14 @@ class MealsService: BaseService {
                 do {
                     let reservationResponse = try JSONDecoder().decode(ReservationResponse.self, from: data)
                     
-//                    self?.updateMealReservation(mealId: mealId, expirationTime: reservationResponse.reservationExpiresAt, reserverId: userId)
-                    
-                    completion(.success((reservationResponse.reservationExpiresAt)))
+                    guard let reservationExpiresAt = reservationResponse.reservationExpiresAt else {
+                        completion(.failure(NSError(domain: "",
+                                                    code: -1,
+                                                    userInfo: [NSLocalizedDescriptionKey: "Missing reservation expiration date"])))
+                        return
+                    }
+                        
+                    completion(.success((reservationExpiresAt)))
                 } catch {
                     completion(.failure(error))
                 }

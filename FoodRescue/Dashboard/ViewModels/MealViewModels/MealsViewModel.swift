@@ -40,6 +40,16 @@ class MealsViewModel: ObservableObject {
                 self?.meals.removeAll { $0.id == deletedMeal.id }
             }
         }
+        
+        realTimeUpdatesManager.subscribe(to: .reserveMeal) { [weak self] (reservation: ReservationResponse) in
+            DispatchQueue.main.async {
+                guard let reservationExpiresAt = reservation.reservationExpiresAt,
+                      let mealReservedId = reservation.id,
+                      let timeLeft = DateConverter.timeLeft(from: reservationExpiresAt)
+                else { return }
+                self?.reservedMeals[mealReservedId] = timeLeft
+            }
+        }
     }
     
     deinit {

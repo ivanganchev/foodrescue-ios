@@ -8,5 +8,7 @@
 import Foundation
 
 struct ReservationResponse: Decodable {
-    let reservationExpiresAt: String
+    let id: String?
+    let reservationExpiresAt: String?
+    let reservedBy: String?
 }

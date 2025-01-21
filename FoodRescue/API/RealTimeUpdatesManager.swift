@@ -12,6 +12,7 @@ enum RealTimeEvent: String {
     case newRestaurant = "newRestaurant"
     case newMeal = "newMeal"
     case deleteMeal = "deleteMeal"
+    case reserveMeal = "mealReserved"
 }
 
 class RealTimeUpdatesManager {
