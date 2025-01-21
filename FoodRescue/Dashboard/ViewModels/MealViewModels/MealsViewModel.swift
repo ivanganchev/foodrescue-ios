@@ -30,6 +30,7 @@ class MealsViewModel: ObservableObject {
         
         realTimeUpdatesManager.subscribe(to: .newMeal) { [weak self] (newMeal: Meal) in
             DispatchQueue.main.async {
+                guard self?.userSessionService.getUserId() != self?.restaurant?.ownerId else { return }
                 self?.meals.append(newMeal)
             }
         }
