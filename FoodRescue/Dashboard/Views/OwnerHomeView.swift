@@ -1,5 +1,5 @@
 //
-//  OwnerHomerView.swift
+//  OwnerHomeView.swift
 //  FoodRescue
 //
 //  Created by Ivan Ganchev on 2025-01-19.
@@ -13,23 +13,34 @@ struct OwnerHomeView: View {
     let userSession: UserSessionService
 
     var body: some View {
-        Text("My restaurants")
-            .multilineTextAlignment(.center)
-            .font(.title)
-            .fontWeight(.bold)
-            .offset(y: -20)
-        
-        Spacer()
-        
-        List {
-            ForEach(mealsViewModel.mealsByRestaurant, id: \.restaurant) { group in
-                RestaurantSectionView(
-                    restaurantId: group.restaurant,
-                    meals: group.meals,
-                    restaurantViewModel: restaurantViewModel,
-                    mealsViewModel: mealsViewModel
-                )
+        VStack {
+            Text("My restaurants")
+                .multilineTextAlignment(.center)
+                .font(.title)
+                .fontWeight(.bold)
+                .offset(y: -20)
+            
+            Spacer()
+            
+            if mealsViewModel.mealsByRestaurant.isEmpty {
+                Text("You don't have any restaurants yet.")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                    .padding()
+            } else {
+                List {
+                    ForEach(mealsViewModel.mealsByRestaurant, id: \.restaurant) { group in
+                        RestaurantSectionView(
+                            restaurantId: group.restaurant,
+                            meals: group.meals,
+                            restaurantViewModel: restaurantViewModel,
+                            mealsViewModel: mealsViewModel
+                        )
+                    }
+                }
             }
+            
+            Spacer()
         }
         .onAppear() {
             restaurantViewModel.getAllRestaurants(for: userSession.getUserId())

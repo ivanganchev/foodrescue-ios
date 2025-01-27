@@ -26,7 +26,7 @@
 		C131ED7A2D0F260500D34C5D /* CreateMealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C131ED792D0F260500D34C5D /* CreateMealView.swift */; };
 		C131ED7E2D0F264300D34C5D /* CreateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C131ED7D2D0F264300D34C5D /* CreateContentView.swift */; };
 		C137472E2D3C065E00C8E183 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137472D2D3C065E00C8E183 /* HomeViewModel.swift */; };
-		C13747302D3D620800C8E183 /* OwnerHomerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137472F2D3D620800C8E183 /* OwnerHomerView.swift */; };
+		C13747302D3D620800C8E183 /* OwnerHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C137472F2D3D620800C8E183 /* OwnerHomeView.swift */; };
 		C13747322D3D621200C8E183 /* CustomerHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13747312D3D621200C8E183 /* CustomerHomeView.swift */; };
 		C1385B402D38546D00FD1EBA /* DateConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1385B3F2D38546D00FD1EBA /* DateConverter.swift */; };
 		C1385B422D3856A600FD1EBA /* TimeComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1385B412D3856A600FD1EBA /* TimeComponents.swift */; };
@@ -109,7 +109,7 @@
 		C131ED792D0F260500D34C5D /* CreateMealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMealView.swift; sourceTree = "<group>"; };
 		C131ED7D2D0F264300D34C5D /* CreateContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateContentView.swift; sourceTree = "<group>"; };
 		C137472D2D3C065E00C8E183 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HomeViewModel.swift; path = /Users/ivanganchev/Projects/HomeViewModel.swift; sourceTree = "<absolute>"; };
-		C137472F2D3D620800C8E183 /* OwnerHomerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerHomerView.swift; sourceTree = "<group>"; };
+		C137472F2D3D620800C8E183 /* OwnerHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerHomeView.swift; sourceTree = "<group>"; };
 		C13747312D3D621200C8E183 /* CustomerHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerHomeView.swift; sourceTree = "<group>"; };
 		C1385B3F2D38546D00FD1EBA /* DateConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConverter.swift; sourceTree = "<group>"; };
 		C1385B412D3856A600FD1EBA /* TimeComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeComponents.swift; sourceTree = "<group>"; };
@@ -350,7 +350,7 @@
 				C131ED7D2D0F264300D34C5D /* CreateContentView.swift */,
 				C12482952D1B201F00BDEF81 /* RestaurantDashboardView.swift */,
 				C1F20CED2D2B16CF00B821F9 /* ProfileView.swift */,
-				C137472F2D3D620800C8E183 /* OwnerHomerView.swift */,
+				C137472F2D3D620800C8E183 /* OwnerHomeView.swift */,
 				C13747312D3D621200C8E183 /* CustomerHomeView.swift */,
 			);
 			path = Views;
@@ -557,7 +557,7 @@
 				C16BFFE42D1D8B7900B4CED6 /* MealsViewModel.swift in Sources */,
 				C12482982D1C725500BDEF81 /* UserSessionService.swift in Sources */,
 				C14E50CC2D3FAE8A00DB80E3 /* LocationManager.swift in Sources */,
-				C13747302D3D620800C8E183 /* OwnerHomerView.swift in Sources */,
+				C13747302D3D620800C8E183 /* OwnerHomeView.swift in Sources */,
 				C17917152C02121F0005E1B1 /* RoleView.swift in Sources */,
 				C12C4A912B49884400E0B1D2 /* UITextFieldExtension.swift in Sources */,
 				C12C4A932B49887400E0B1D2 /* UIColorExtension.swift in Sources */,

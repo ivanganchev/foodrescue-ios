@@ -22,7 +22,7 @@ struct CustomerHomeView: View {
         Spacer()
         VStack {
             if locationManager.isLocationEnabled {
-                if let location = locationManager.userLocation {
+                if let _ = locationManager.userLocation {
                     List(viewModel.restaurants, id: \.id) { restaurant in
                         CustomerRestaurantCell(restaurant: restaurant, tapAction: {
                             restaurantTapAction(restaurant)
